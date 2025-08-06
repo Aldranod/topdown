@@ -1,11 +1,14 @@
 class_name PlayerCamera extends Camera2D
 
+@export var zooom: Vector2 = Vector2(1.5,1.5)
+
 @export_range(0,1,0.05,"or_greater") var shake_power : float = 0.5 # overall strength of shake
 @export var shake_max_offset : float = 5.0 # maximum shake in pixels
 @export var shake_decay : float = 1.0 # how quickly shake stops
 var shake_trauma : float = 0.0
 
 func _ready():
+	zoom = zooom
 	LevelManager.TileMapBoundsChanged.connect( UpdateLimits)
 	UpdateLimits(LevelManager.current_tilemap_bounds)
 	PlayerManager.camera_shook.connect( add_camera_shake)
