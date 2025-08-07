@@ -35,15 +35,15 @@ level = "uid://cq1bgaqn7vgva"
 side = 1
 
 [node name="ItemPickup" parent="." instance=ExtResource("5_8itkk")]
-position = Vector2(527, 102)
+position = Vector2(407.306, 103.122)
 item_data = ExtResource("7_th3kk")
 
 [node name="ItemPickup2" parent="." instance=ExtResource("5_8itkk")]
-position = Vector2(-48, 121)
+position = Vector2(-45, 112)
 item_data = ExtResource("8_b60gt")
 
 [node name="ItemPickup3" parent="." instance=ExtResource("5_8itkk")]
-position = Vector2(-45, 146)
+position = Vector2(-43, 142)
 item_data = ExtResource("8_b60gt")
 
 [node name="Treasure-chest" parent="." instance=ExtResource("7_xhij5")]

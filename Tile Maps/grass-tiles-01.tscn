@@ -497,6 +497,7 @@ sources/1 = SubResource("TileSetAtlasSource_kpenc")
 sources/0 = SubResource("TileSetAtlasSource_17imq")
 
 [node name="grass-tiles-01" type="TileMapLayer"]
+z_index = -1
 use_parent_material = true
 tile_set = SubResource("TileSet_vy4p5")
 rendering_quadrant_size = 32

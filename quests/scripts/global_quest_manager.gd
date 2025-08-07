@@ -6,10 +6,7 @@ signal quest_updated( q )
 const QUEST_DATA_LOCATION : String = "res://quests/"
 
 var quests : Array[Quest]
-var current_quests : Array = [
-	{ title = "Recover lost flute", is_complete = false, completed_steps = ['Find Magical Flute']},
-	{ title = "long quest", is_complete = false, completed_steps = ['']}
-	]
+var current_quests : Array = []
 
 func _ready() -> void:
 	gather_quest_data()
@@ -21,9 +18,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		#print(find_quest_by_title("Short Quest"))
 		#print("get quest index by title: ",get_quest_index_by_title("Recover lost flute"))
 		#print("get quest index by title: ",get_quest_index_by_title("Short qUest"))
-		update_quest("short quest")
-		update_quest("Recover lost flute","Find Magical Flute")
-		update_quest("long quest","",true)
+		#print("before: ", current_quests)
+		#update_quest("short quest", "", true)
+		#update_quest("Recover lost flute","Find Magica Flute" )
+		#update_quest("Recover lost flute", "", true)
+		print("quests: ", current_quests)
+		#print("=================================================================" )
 	pass	
 	
 func gather_quest_data() -> void:
@@ -44,9 +44,9 @@ func update_quest( _title : String, _completed_step: String = "", _is_complete :
 				completed_steps = [] 
 		}
 		if _completed_step != "":
-			new_quest.completed_steps.append(_completed_step)
+			new_quest.completed_steps.append( _completed_step )
 		
-		current_quests.append(new_quest)
+		current_quests.append( new_quest )
 		quest_updated.emit( new_quest)	
 		
 		#Display notification that quest was added
@@ -55,15 +55,20 @@ func update_quest( _title : String, _completed_step: String = "", _is_complete :
 		#Quest fund, update it
 		var q = current_quests[quest_index]
 		if _completed_step != "" and q.completed_steps.has(_completed_step) == false :
-			q.completed_steps.append(_completed_step)
+			q.completed_steps.append( _completed_step )
 			pass
 		q.is_complete = _is_complete
 		quest_updated.emit( q)	
 		#Display notification that quest was added OR completed
+		if q.is_complete == true:
+			disperse_quest_rewards(find_quest_by_title(_title))
 	pass
 	
-func disperse_quest_rewards() -> void:
+func disperse_quest_rewards( _q : Quest) -> void:
 	#give xp and item rewards to player
+	PlayerManager.reward_xp( _q.reward_xp)
+	for i in _q.reward_items:
+		PlayerManager.INVENTORY_DATA.add_item(i.item,i.quantity)
 	pass
 	
 #Provide a quest and return the current quests associated with it	

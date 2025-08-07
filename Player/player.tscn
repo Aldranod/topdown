@@ -1563,7 +1563,6 @@ exhaust_audio = ExtResource("21_efx54")
 [node name="Camera2D" type="Camera2D" parent="."]
 editor_draw_limits = true
 script = ExtResource("11_5htga")
-zooom = Vector2(1, 1)
 shake_power = 0.35
 
 [node name="Audio" type="Node2D" parent="."]
