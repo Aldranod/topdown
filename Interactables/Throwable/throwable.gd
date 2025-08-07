@@ -75,6 +75,7 @@ func drop() -> void:
 	pass
 	
 func destroy() -> void:
+	hurt_box.set_deferred("monitoring",false)
 	set_physics_process(false)
 	if animation_player:
 		animation_player.play("destroy")
