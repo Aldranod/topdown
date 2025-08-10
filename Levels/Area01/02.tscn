@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=24 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://d2k348kbuqax4" path="res://quests/recover_lost_flute.tres" id="20_2rucc"]
 [ext_resource type="PackedScene" uid="uid://cq546xmyh16lb" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_wrnjp"]
 [ext_resource type="Resource" uid="uid://ditbdn2uxoskb" path="res://quests/long_quest.tres" id="21_wrnjp"]
+[ext_resource type="PackedScene" uid="uid://dfao1r52i6rrt" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_xflnv"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_x70af")
@@ -89,7 +90,7 @@ npc_info = ExtResource("8_jeo2k")
 metadata/_custom_type_script = "uid://doa5j8sxy5b7q"
 
 [node name="Nero" parent="." instance=ExtResource("7_icgqb")]
-position = Vector2(200, 240)
+position = Vector2(192, 232)
 npc_resource = ExtResource("15_mxs1d")
 
 [node name="NpcBehaviorPatrol" parent="Nero" instance=ExtResource("10_q5iyu")]
@@ -146,6 +147,7 @@ npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://c5uj5hel8n7vv"
 
 [node name="QuestAdvanceTrigger" parent="Nero/DialogInteraction/DialogChoice/DialogBranch" instance=ExtResource("20_wrnjp")]
+position = Vector2(192, 192)
 signal_name = "selected"
 linked_quest = ExtResource("20_2rucc")
 settings_summary = "UPDATE QUEST:
@@ -200,4 +202,25 @@ quest_step = 1
 settings_summary = "UPDATE QUEST:
 Quest: Long Quest
 Step: 1 - Step 1
+Complete: false"
+
+[node name="QuestActivatedSwitch" parent="." instance=ExtResource("23_xflnv")]
+check_type = 0
+react_to_gloabl_signal = null
+linked_quest = ExtResource("20_2rucc")
+settings_summary = "UPDATE QUEST:
+Quest: Recover Lost Flute
+Checking if player has quest"
+
+[node name="PressurePlate2" parent="QuestActivatedSwitch" instance=ExtResource("19_2rucc")]
+z_index = -1
+position = Vector2(400, 112)
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch/PressurePlate2" instance=ExtResource("20_wrnjp")]
+signal_name = "activated"
+linked_quest = ExtResource("21_wrnjp")
+quest_step = 2
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 2 - Step 2
 Complete: false"
