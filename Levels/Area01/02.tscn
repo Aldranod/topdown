@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=23 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
@@ -18,12 +18,17 @@
 [ext_resource type="Script" uid="uid://fshksdm1ixai" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_xiy2e"]
 [ext_resource type="Script" uid="uid://c5uj5hel8n7vv" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_j3pfp"]
 [ext_resource type="PackedScene" uid="uid://dsqvx0e8msa5u" path="res://Props/pot/Pot.tscn" id="18_j3pfp"]
+[ext_resource type="PackedScene" uid="uid://ds8xpl317dck1" path="res://Interactables/Dungeon/pressure_plate.tscn" id="19_2rucc"]
+[ext_resource type="Resource" uid="uid://d2k348kbuqax4" path="res://quests/recover_lost_flute.tres" id="20_2rucc"]
+[ext_resource type="PackedScene" uid="uid://cq546xmyh16lb" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_wrnjp"]
+[ext_resource type="Resource" uid="uid://ditbdn2uxoskb" path="res://quests/long_quest.tres" id="21_wrnjp"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_x70af")
 music = ExtResource("2_icgqb")
 
 [node name="grass-tiles-01" parent="." instance=ExtResource("4_m4nom")]
+z_index = -2
 tile_map_data = PackedByteArray("AAD+//7/AQAAAAAAAAD+////AQACAAQAAAD+/wAAAQACAAUAAAD+/wEAAQACAAYAAAD+/wIAAQANAAQAAAD+/wMAAQABAAIAAAD+/wQAAQABAAIAAAD+/wUAAQABAAIAAAD+/wYAAQABAAIAAAD+/wcAAQABAAIAAAD+/wgAAQABAAIAAAD+/wkAAQABAAIAAAD///7/AQABAAAAAAD/////AQACAAQAAAD//wAAAQACAAUAAAD//wEAAQACAAYAAAD//wIAAQAOAAQAAAD//wMAAQAOAAUAAAD//wQAAQAOAAUAAAD//wUAAQAOAAUAAAD//wYAAQAOAAUAAAD//wcAAQAOAAUAAAD//wgAAQAOAAUAAAD//wkAAQAOAAUAAAAAAP7/AQACAAAAAAAAAP//AQACAAQAAAAAAAAAAQACAAUAAAAAAAEAAQACAAYAAAAAAAIAAQABAAIAAAAAAAMAAQABAAIAAAAAAAQAAQABAAIAAAAAAAUAAQABAAIAAAAAAAYAAQAFAAAAAAAAAAcAAQAEAAEAAAAAAAgAAQAEAAIAAAAAAAkAAQAKAAQAAAABAP7/AQAAAAEAAAABAP//AQACAAQAAAABAAAAAQACAAUAAAABAAEAAQACAAYAAAABAAIAAQABAAIAAAABAAMAAQABAAIAAAABAAQAAQABAAIAAAABAAUAAQAFAAAAAAABAAYAAQAHAAIAAAABAAcAAQABAAIAAAABAAgAAQABAAIAAAABAAkAAQALAAQAAAACAP7/AQABAAEAAAACAP//AQACAAQAAAACAAAAAQACAAUAAAACAAEAAQACAAYAAAACAAIAAQABAAIAAAACAAMAAQABAAIAAAACAAQAAQABAAIAAAACAAUAAQAGAAMAAAACAAYAAQABAAIAAAACAAcAAQABAAIAAAACAAgAAQABAAIAAAACAAkAAQAMAAQAAAADAP7/AQACAAEAAAADAP//AQACAAQAAAADAAAAAQACAAUAAAADAAEAAQACAAYAAAADAAIAAQABAAIAAAADAAMAAQABAAIAAAADAAQAAQABAAIAAAADAAUAAQAGAAMAAAADAAYAAQABAAIAAAADAAcAAQABAAIAAAADAAgAAQABAAIAAAADAAkAAQANAAQAAAAEAP7/AQAAAAAAAAAEAP//AQADAAQAAAAEAAAAAQADAAUAAAAEAAEAAQANAAcAAAAEAAIAAQABAAIAAAAEAAMAAQAEAAAAAAAEAAQAAQAEAAEAAAAEAAUAAQAGAAIAAAAEAAYAAQABAAIAAAAEAAcAAQABAAIAAAAEAAgAAQABAAIAAAAEAAkAAQAMAAQAAAAFAP7/AQAOAAUAAAAFAP//AQAOAAYAAAAFAAAAAQAJAAcAAAAFAAEAAQAOAAcAAAAFAAIAAQABAAIAAAAFAAMAAQABAAIAAAAFAAQAAQABAAIAAAAFAAUAAQAGAAMAAAAFAAYAAQABAAIAAAAFAAcAAQAEAAMAAAAFAAgAAQABAAIAAAAFAAkAAQAMAAQAAAAGAAEAAQAMAAMAAAAGAAIAAQABAAIAAAAGAAMAAQABAAIAAAAGAAQAAQABAAIAAAAGAAUAAQAHAAMAAAAGAAYAAQABAAIAAAAGAAcAAQABAAIAAAAGAAgAAQABAAIAAAAGAAkAAQAMAAQAAAAHAAEAAQAJAAIAAAAHAAIAAQAMAAEAAAAHAAMAAQAFAAIAAAAHAAQAAQABAAIAAAAHAAUAAQABAAIAAAAHAAYAAQABAAIAAAAHAAcAAQABAAIAAAAHAAgAAQABAAIAAAAHAAkAAQAMAAQAAAAIAAEAAQAPAAIAAAAIAAIAAQAPAAIAAAAIAAMAAQAKAAEAAAAIAAQAAQAMAAEAAAAIAAUAAQAMAAMAAAAIAAYAAQABAAIAAAAIAAcAAQABAAIAAAAIAAgAAQABAAIAAAAIAAkAAQAMAAQAAAAJAP7/AQAKAAUAAAAJAP//AQAKAAYAAAAJAAAAAQAJAAYAAAAJAAEAAQAKAAcAAAAJAAIAAQABAAIAAAAJAAMAAQAPAAAAAAAJAAQAAQAKAAEAAAAJAAUAAQANAAMAAAAJAAYAAQABAAIAAAAJAAcAAQABAAIAAAAJAAgAAQABAAIAAAAJAAkAAQAMAAQAAAAKAP7/AQABAAMAAAAKAP//AQADAAQAAAAKAAAAAQADAAUAAAAKAAEAAQALAAcAAAAKAAIAAQABAAIAAAAKAAMAAQABAAIAAAAKAAQAAQAKAAAAAAAKAAUAAQAPAAIAAAAKAAYAAQAMAAMAAAAKAAcAAQABAAIAAAAKAAgAAQABAAIAAAAKAAkAAQAMAAQAAAALAP7/AQABAAMAAAALAP//AQADAAQAAAALAAAAAQADAAUAAAALAAEAAQADAAYAAAALAAIAAQABAAIAAAALAAMAAQABAAIAAAALAAQAAQAHAAMAAAALAAUAAQABAAIAAAALAAYAAQAHAAMAAAALAAcAAQABAAIAAAALAAgAAQABAAIAAAALAAkAAQAMAAQAAAAMAP7/AQABAAMAAAAMAP//AQADAAQAAAAMAAAAAQADAAUAAAAMAAEAAQADAAYAAAAMAAIAAQABAAIAAAAMAAMAAQABAAIAAAAMAAQAAQABAAIAAAAMAAUAAQABAAIAAAAMAAYAAQABAAIAAAAMAAcAAQABAAIAAAAMAAgAAQABAAIAAAAMAAkAAQAMAAQAAAANAP7/AQABAAEAAAANAP//AQAEAAQAAAANAAAAAQAEAAUAAAANAAEAAQAEAAYAAAANAAIAAQABAAIAAAANAAMAAQABAAIAAAANAAQAAQABAAIAAAANAAUAAQABAAIAAAANAAYAAQABAAIAAAANAAcAAQABAAIAAAANAAgAAQABAAIAAAANAAkAAQAMAAQAAAAOAP7/AQACAAEAAAAOAP//AQACAAQAAAAOAAAAAQACAAUAAAAOAAEAAQACAAYAAAAOAAIAAQABAAIAAAAOAAMAAQABAAIAAAAOAAQAAQABAAIAAAAOAAUAAQABAAIAAAAOAAYAAQABAAIAAAAOAAcAAQABAAIAAAAOAAgAAQABAAIAAAAOAAkAAQAOAAQAAAAPAP7/AQADAAEAAAAPAP//AQADAAQAAAAPAAAAAQADAAUAAAAPAAEAAQADAAYAAAAPAAIAAQAKAAQAAAAPAAMAAQAKAAUAAAAPAAQAAQAKAAUAAAAPAAUAAQAKAAUAAAAPAAYAAQAKAAUAAAAPAAcAAQAKAAUAAAAPAAgAAQAKAAUAAAAPAAkAAQAKAAUAAAAQAP7/AQABAAMAAAAQAP//AQAEAAQAAAAQAAAAAQAEAAUAAAAQAAEAAQAEAAYAAAAQAAIAAQALAAQAAAAQAAMAAQABAAIAAAAQAAQAAQABAAIAAAAQAAUAAQABAAIAAAAQAAYAAQABAAIAAAAQAAcAAQABAAIAAAAQAAgAAQABAAIAAAAQAAkAAQABAAIAAAAGAAAAAQAMAAEAAAAGAP//AQAMAAEAAAAGAP7/AQAMAAEAAAAIAAAAAQAPAAIAAAAIAP//AQAPAAIAAAAIAP7/AQAPAAIAAAAHAAAAAQANAAIAAAAHAP//AQANAAIAAAAHAP7/AQANAAIAAAA=")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_mwxiv")]
@@ -83,88 +88,96 @@ So, what is troubling you?"
 npc_info = ExtResource("8_jeo2k")
 metadata/_custom_type_script = "uid://doa5j8sxy5b7q"
 
-[node name="NPC2" parent="." instance=ExtResource("7_icgqb")]
+[node name="Nero" parent="." instance=ExtResource("7_icgqb")]
 position = Vector2(200, 240)
 npc_resource = ExtResource("15_mxs1d")
 
-[node name="NpcBehaviorPatrol" parent="NPC2" instance=ExtResource("10_q5iyu")]
+[node name="NpcBehaviorPatrol" parent="Nero" instance=ExtResource("10_q5iyu")]
 
-[node name="PatrolLocation" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation" parent="Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(1, 0, 0, 1)
 wait_time = 1.0
 
-[node name="PatrolLocation2" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation2" parent="Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(-40, -96)
 wait_time = 2.0
 
-[node name="PatrolLocation3" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation3" parent="Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(0, 1, 0, 1)
 position = Vector2(-48, -56)
 wait_time = 2.0
 
-[node name="PatrolLocation5" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation5" parent="Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(-48, -32)
 
-[node name="PatrolLocation6" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation6" parent="Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(0, 0, 1, 1)
 position = Vector2(-72, -24)
 wait_time = 2.0
 
-[node name="PatrolLocation7" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation7" parent="Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(1, 0, 1, 1)
 position = Vector2(-80, 0)
 
-[node name="PatrolLocation8" parent="NPC2/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation8" parent="Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(-104, 0)
 wait_time = 2.0
 
-[node name="DialogInteraction" parent="NPC2" instance=ExtResource("10_sci0f")]
+[node name="DialogInteraction" parent="Nero" instance=ExtResource("10_sci0f")]
 
-[node name="DialogText" type="Node" parent="NPC2/DialogInteraction"]
+[node name="DialogText" type="Node" parent="Nero/DialogInteraction"]
 script = ExtResource("11_r3wde")
 text = "You! Hero! Will you help me retrieve my magical flute from the dark dungeon?"
 npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://doa5j8sxy5b7q"
 
-[node name="DialogChoice" type="Node" parent="NPC2/DialogInteraction"]
+[node name="DialogChoice" type="Node" parent="Nero/DialogInteraction"]
 script = ExtResource("16_xiy2e")
 npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://fshksdm1ixai"
 
-[node name="DialogBranch" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+[node name="DialogBranch" type="Node" parent="Nero/DialogInteraction/DialogChoice"]
 script = ExtResource("17_j3pfp")
 text = "Sure"
 npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://c5uj5hel8n7vv"
 
-[node name="DialogText" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+[node name="QuestAdvanceTrigger" parent="Nero/DialogInteraction/DialogChoice/DialogBranch" instance=ExtResource("20_wrnjp")]
+signal_name = "selected"
+linked_quest = ExtResource("20_2rucc")
+settings_summary = "UPDATE QUEST:
+Quest: Recover Lost Flute
+Step: 0 - N/A
+Complete: false"
+
+[node name="DialogText" type="Node" parent="Nero/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_r3wde")
 text = "Thank you! You are a true speciment!"
 npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://doa5j8sxy5b7q"
 
-[node name="DialogText2" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch"]
+[node name="DialogText2" type="Node" parent="Nero/DialogInteraction/DialogChoice/DialogBranch"]
 script = ExtResource("11_r3wde")
 text = "Oh, and be careful of the evil wizard who lurks in the dungeon!"
 npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://doa5j8sxy5b7q"
 
-[node name="DialogBranch2" type="Node" parent="NPC2/DialogInteraction/DialogChoice"]
+[node name="DialogBranch2" type="Node" parent="Nero/DialogInteraction/DialogChoice"]
 script = ExtResource("17_j3pfp")
 text = "I'll think about this"
 npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://c5uj5hel8n7vv"
 
-[node name="DialogText4" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch2"]
+[node name="DialogText4" type="Node" parent="Nero/DialogInteraction/DialogChoice/DialogBranch2"]
 script = ExtResource("11_r3wde")
 text = "Oh..."
 npc_info = ExtResource("15_mxs1d")
 metadata/_custom_type_script = "uid://doa5j8sxy5b7q"
 
-[node name="DialogText3" type="Node" parent="NPC2/DialogInteraction/DialogChoice/DialogBranch2"]
+[node name="DialogText3" type="Node" parent="Nero/DialogInteraction/DialogChoice/DialogBranch2"]
 script = ExtResource("11_r3wde")
 text = "Alright, but don't think too long. I really need this flute "
 npc_info = ExtResource("15_mxs1d")
@@ -175,3 +188,16 @@ position = Vector2(216, 288)
 
 [node name="Pot2" parent="." instance=ExtResource("18_j3pfp")]
 position = Vector2(264, 296)
+
+[node name="PressurePlate" parent="." instance=ExtResource("19_2rucc")]
+z_index = -1
+position = Vector2(352, 112)
+
+[node name="QuestAdvanceTrigger" parent="PressurePlate" instance=ExtResource("20_wrnjp")]
+signal_name = "activated"
+linked_quest = ExtResource("21_wrnjp")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 1 - Step 1
+Complete: false"

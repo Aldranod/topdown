@@ -139,6 +139,7 @@ func _on_timer_timeout() -> void:
 
 func _dialog_choice_selected(_d: DialogBranch) -> void:
 	choice_options.visible = false
+	_d.selected.emit()
 	show_dialog(_d.dialog_items)
 	pass	
 	

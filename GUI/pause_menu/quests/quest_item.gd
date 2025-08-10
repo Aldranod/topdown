@@ -9,6 +9,7 @@ func initialize( q_data : Quest, q_state) -> void:
 	quest = q_data
 	title_label.text = q_data.title
 	if q_state.is_complete:
+		print("completed")
 		step_label.text = "Completed"
 		step_label.modulate = Color.LIGHT_GREEN
 	else:

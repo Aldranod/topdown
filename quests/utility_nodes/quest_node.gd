@@ -11,12 +11,12 @@ class_name QuestNode extends Node2D
 func _set_quest(_v : Quest) -> void:
 	linked_quest = _v
 	quest_step = 0
-	#update summary
+	update_summary()
 	pass
 	
 func _set_step(_v : int) -> void:
 	quest_step = clamp(_v,0,get_step_count())
-	#update summary
+	update_summary()
 	pass	
 
 func get_step_count() -> int:
@@ -28,7 +28,7 @@ func get_step_count() -> int:
 	
 func _set_complete(_v : bool) -> void:
 	quest_complete = _v
-	#update summary
+	update_summary()
 	pass	
 	
 func update_summary() -> void:

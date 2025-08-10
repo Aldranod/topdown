@@ -24,7 +24,8 @@ func _on_visible_change() -> void:
 			if quest_data == null:
 				continue
 			var new_q_item: QuestItem = QUEST_ITEM.instantiate()
-			quest_item_container.add_child(new_q_item)			
+			quest_item_container.add_child(new_q_item)
+			print("on visible change " ,q)			
 			new_q_item.initialize(quest_data, q)
 			new_q_item.focus_entered.connect(update_quest_details.bind(new_q_item.quest))
 	
