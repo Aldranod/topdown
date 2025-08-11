@@ -198,29 +198,52 @@ position = Vector2(352, 112)
 [node name="QuestAdvanceTrigger" parent="PressurePlate" instance=ExtResource("20_wrnjp")]
 signal_name = "activated"
 linked_quest = ExtResource("21_wrnjp")
-quest_step = 1
 settings_summary = "UPDATE QUEST:
 Quest: Long Quest
-Step: 1 - Step 1
+Step: 0 - N/A
 Complete: false"
 
 [node name="QuestActivatedSwitch" parent="." instance=ExtResource("23_xflnv")]
+position = Vector2(400, 112)
 check_type = 0
-react_to_gloabl_signal = null
-linked_quest = ExtResource("20_2rucc")
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("21_wrnjp")
 settings_summary = "UPDATE QUEST:
-Quest: Recover Lost Flute
+Quest: Long Quest
 Checking if player has quest"
 
 [node name="PressurePlate2" parent="QuestActivatedSwitch" instance=ExtResource("19_2rucc")]
 z_index = -1
-position = Vector2(400, 112)
 
 [node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch/PressurePlate2" instance=ExtResource("20_wrnjp")]
+signal_name = "activated"
+linked_quest = ExtResource("21_wrnjp")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Step: 1 - step 1
+Complete: false"
+
+[node name="QuestActivatedSwitch2" parent="." instance=ExtResource("23_xflnv")]
+position = Vector2(448, 112)
+check_type = 1
+remove_when_activated = false
+react_to_global_signal = true
+linked_quest = ExtResource("21_wrnjp")
+quest_step = 1
+settings_summary = "UPDATE QUEST:
+Quest: Long Quest
+Checking if player has completed step: step 1"
+
+[node name="PressurePlate3" parent="QuestActivatedSwitch2" instance=ExtResource("19_2rucc")]
+z_index = -1
+
+[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch2/PressurePlate3" instance=ExtResource("20_wrnjp")]
 signal_name = "activated"
 linked_quest = ExtResource("21_wrnjp")
 quest_step = 2
 settings_summary = "UPDATE QUEST:
 Quest: Long Quest
-Step: 2 - Step 2
+Step: 2 - step 2
 Complete: false"
