@@ -2,7 +2,7 @@
 @icon("res://quests/utility_nodes/icons/quest_switch.png")
 class_name QuestActivatedSwitch extends QuestNode
 
-enum CheckType {HAS_QUEST, QUEST_STEP_COMPLETE, ON_CURRENT_QUEST, QUEST_COMPLETE}
+enum CheckType {HAS_QUEST, QUEST_STEP_COMPLETE, ON_CURRENT_QUEST_STEP, QUEST_COMPLETE}
 
 signal is_activated_changed( v : bool)
 
@@ -32,7 +32,6 @@ func check_is_activated() -> void:
 			if _q.is_complete is bool:
 				is_complete = _q.is_complete
 			set_is_activated( is_complete )
-			#set_is_activated(quest_complete == _q.is_complete)
 		elif check_type == CheckType.QUEST_STEP_COMPLETE:
 			if quest_step > 0:
 				if _q.completed_steps.has(get_step()) == true:
@@ -40,7 +39,22 @@ func check_is_activated() -> void:
 				else:
 					set_is_activated(false)
 			else:
-				set_is_activated(false)					
+				set_is_activated(false)
+		elif check_type == CheckType.ON_CURRENT_QUEST_STEP:
+			var step : String = get_step()
+			if step == "N/A":
+				set_is_activated(false)
+			else:
+				if _q.completed_steps.has(step):
+					set_is_activated(false)
+				else:
+					var prev_step : String = get_prev_step()
+					if prev_step == "N/A":
+						set_is_activated(true)
+					elif _q.completed_steps.has(prev_step.to_lower()):
+						set_is_activated(true)
+					else:
+						set_is_activated(false)												
 		pass
 	else:
 		set_is_activated(false)	
@@ -69,7 +83,13 @@ func show_children() -> void:
 func hide_children() -> void:
 	for c in get_children():
 		c.set_deferred("visible", false)
-		c.set_deferred("process_mode",Node.PROCESS_MODE_DISABLED)		
+		c.set_deferred("process_mode",Node.PROCESS_MODE_DISABLED)
+				
+func get_prev_step() -> String:
+	if quest_step <= get_step_count() and quest_step > 1:
+		return linked_quest.steps[quest_step - 2]
+	else:
+		return "N/A"	
 
 func _on_quest_updated( _a : Dictionary) -> void:
 	check_is_activated()
@@ -87,7 +107,7 @@ func update_summary() -> void:
 		settings_summary += "Checking if player has quest"
 	elif check_type ==CheckType.QUEST_STEP_COMPLETE:
 		settings_summary += "Checking if player has completed step: " + get_step()
-	elif check_type ==CheckType.ON_CURRENT_QUEST:
+	elif check_type ==CheckType.ON_CURRENT_QUEST_STEP:
 		settings_summary += "Checking if player is on step: " + get_step()
 	elif check_type ==CheckType.QUEST_COMPLETE:	
 		settings_summary += "Checking if quest is complete"		
