@@ -60,5 +60,5 @@ func interact() -> void:
 	interact_pressed.emit()
 
 func shake_camera( trauma : float = 1.0) -> void:
-	camera_shook.emit(trauma)
+	camera_shook.emit(clampi(trauma,0,3))
 	
