@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds2s6jmjqwrcs"]
+[gd_scene load_steps=9 format=3 uid="uid://ds2s6jmjqwrcs"]
 
 [ext_resource type="Texture2D" uid="uid://duyedfirdtlpt" path="res://title_scene/sprites/Sprite-0006.png" id="1_rh845"]
+[ext_resource type="FontFile" uid="uid://blofs77f4laor" path="res://GUI/fonts/Abaddon Bold.ttf" id="2_0u2bx"]
 
 [sub_resource type="Animation" id="Animation_rh845"]
 resource_name = "Default"
@@ -214,9 +215,11 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -100.0
-offset_top = -48.0
+offset_top = -49.0
 offset_right = 100.0
-offset_bottom = -25.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_0u2bx")
 text = "Aldranod Games presents"
+horizontal_alignment = 1
