@@ -3,6 +3,8 @@ class_name DarkWizardBoss extends Node2D
 const ENERGY_EXPLOSION_SCENE : PackedScene = preload("res://Levels/Dungeon01/dark_wizard/energy_explosion.tscn")
 const ENERGY_BALL_SCENE: PackedScene = preload("res://Levels/Dungeon01/dark_wizard/energy_orb.tscn")
 @export var max_hp : int = 10
+@export var xp_reward : int = 50
+
 var hp : int = 10
 var audio_hurt : AudioStream = preload("res://Levels/Dungeon01/dark_wizard/audio/boss_hurt.wav")
 var audio_shoot: AudioStream = preload("res://Levels/Dungeon01/dark_wizard/audio/boss_fireball.wav")
@@ -183,6 +185,7 @@ func defeat() -> void:
 	enable_hit_boxes( false)
 	PlayerHud.hide_boss_health()
 	await animation_player.animation_finished
+	PlayerManager.reward_xp(xp_reward)
 	$ItemDropper.position = boss_node.position
 	$ItemDropper.drop_item()
 	$ItemDropper.drop_collected.connect(open_dungeon)

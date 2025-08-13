@@ -11,6 +11,15 @@ var invulnerable : bool = false
 var hp : int = 6
 var max_hp : int = 6
 
+var level : int = 1
+var xp: int = 0
+
+var attack : int =1 :
+	set( v ):
+		attack = v
+		update_damage_values()
+var defense : int = 1
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
 @onready var hit_box: HitBox = $HitBox
@@ -27,6 +36,8 @@ func _ready():
 	state_machine.Initialize(self)
 	hit_box.Damaged.connect( _take_damage)
 	update_hp(99)
+	update_damage_values()
+	#PlayerManager.player_leveled_up.connect(update_damage_values)
 	pass
 	
 func _process(_delta):
@@ -104,3 +115,7 @@ func pickup_item(_t : Throwable) -> void:
 func revive_player() -> void:
 	update_hp(99)
 	state_machine.change_state($StateMachine/Idle)
+	
+func update_damage_values() -> void:
+	%AttackHurtBox.damage = attack
+	%ChargeSpinHurtBox.damage = attack * 2

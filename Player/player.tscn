@@ -1502,7 +1502,7 @@ position = Vector2(0, 1)
 rotation = 6.28319
 collision_mask = 256
 monitoring = false
-damage = 3
+damage = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ChargeSpinHurtBox"]
 shape = SubResource("CircleShape2D_n471f")

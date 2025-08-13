@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkw2fj12qwp1f"]
+[gd_scene load_steps=14 format=3 uid="uid://bkw2fj12qwp1f"]
 
 [ext_resource type="Script" uid="uid://gxu8vi1uclil" path="res://GUI/pause_menu/pause_menu.gd" id="1_vhkkt"]
 [ext_resource type="Texture2D" uid="uid://ssobr7llhmdq" path="res://items/sprites/items.png" id="2_dfhdr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://c0vqb8ovfsfr1" path="res://GUI/pause_menu/inventory/player_inventory.tres" id="4_mc7vq"]
 [ext_resource type="Script" uid="uid://cqmid2ol16hjd" path="res://GUI/pause_menu/quests_ui.gd" id="6_16eqs"]
 [ext_resource type="PackedScene" uid="uid://c6ci1n6mdr47a" path="res://GUI/pause_menu/quests/quest_item.tscn" id="6_408tb"]
+[ext_resource type="PackedScene" uid="uid://drkwph2gh0fl" path="res://GUI/pause_menu/stats/stats.tscn" id="6_ybaie"]
 [ext_resource type="FontFile" uid="uid://blofs77f4laor" path="res://GUI/fonts/Abaddon Bold.ttf" id="8_uh56w"]
 [ext_resource type="FontFile" uid="uid://b3vfln84rwak7" path="res://GUI/fonts/m5x7.ttf" id="9_rlqlv"]
 [ext_resource type="PackedScene" uid="uid://v41ptl60udd3" path="res://GUI/pause_menu/quests/quest_step_item.tscn" id="10_ai8h2"]
@@ -71,19 +72,18 @@ offset_top = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Inventory" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/TabContainer/Inventory"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 17.0
-offset_right = 212.0
-offset_bottom = 105.0
+offset_left = 32.0
+offset_top = 33.0
+offset_right = 228.0
+offset_bottom = 121.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_408tb")
 
 [node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer"]
@@ -113,16 +113,23 @@ layout_mode = 2
 [node name="InventorySlot7" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_laftm")]
 layout_mode = 2
 
+[node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_ybaie")]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 33.0
+offset_right = 448.0
+offset_bottom = 137.0
+
 [node name="ItemDescription" type="Label" parent="Control/TabContainer/Inventory"]
 modulate = Color(0.742816, 0.604873, 0.398865, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -224.0
-offset_top = 105.0
-offset_right = -32.0
-offset_bottom = 153.0
+offset_left = -208.0
+offset_top = 113.0
+offset_right = -16.0
+offset_bottom = 161.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 10
 text = "example description"
@@ -131,6 +138,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Quests" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 script = ExtResource("6_16eqs")
 metadata/_tab_index = 1
