@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EqupableItemData" load_steps=8 format=3 uid="uid://d33j8r8ov3y48"]
+
+[ext_resource type="Script" uid="uid://dp6mnl2n2v8cg" path="res://items/item_effects/item_effect.gd" id="1_n5qgx"]
+[ext_resource type="Script" uid="uid://cgh5nf2ude5c1" path="res://items/scripts/equipable_item_modifier.gd" id="2_6p31s"]
+[ext_resource type="Script" uid="uid://bqflwu4k7h7sy" path="res://items/scripts/equipable_item_data.gd" id="3_lu4ob"]
+[ext_resource type="Texture2D" uid="uid://uxuqoqnbv302" path="res://items/sprites/gear.png" id="4_ja75p"]
+
+[sub_resource type="Resource" id="Resource_iql6b"]
+script = ExtResource("2_6p31s")
+type = 2
+value = 5
+name = ""
+description = ""
+effects = Array[ExtResource("1_n5qgx")]([])
+metadata/_custom_type_script = "uid://cgh5nf2ude5c1"
+
+[sub_resource type="Resource" id="Resource_n5qgx"]
+script = ExtResource("2_6p31s")
+type = 1
+value = 1
+name = ""
+description = ""
+effects = Array[ExtResource("1_n5qgx")]([])
+metadata/_custom_type_script = "uid://cgh5nf2ude5c1"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoaxr"]
+atlas = ExtResource("4_ja75p")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+script = ExtResource("3_lu4ob")
+type = 1
+modifiers = Array[ExtResource("2_6p31s")]([SubResource("Resource_iql6b"), SubResource("Resource_n5qgx")])
+name = "Ninja Suit"
+description = "This ninaj suit is totally rad,
+and suprisingly comfy."
+texture = SubResource("AtlasTexture_eoaxr")
+effects = Array[ExtResource("1_n5qgx")]([])
+metadata/_custom_type_script = "uid://bqflwu4k7h7sy"

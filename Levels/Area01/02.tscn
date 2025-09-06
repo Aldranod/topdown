@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=29 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
@@ -23,6 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://cq546xmyh16lb" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_wrnjp"]
 [ext_resource type="Resource" uid="uid://ditbdn2uxoskb" path="res://quests/long_quest.tres" id="21_wrnjp"]
 [ext_resource type="PackedScene" uid="uid://dfao1r52i6rrt" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_xflnv"]
+[ext_resource type="PackedScene" uid="uid://cg2bbqxjj76ei" path="res://items/item_pickup/item_pickup.tscn" id="24_a2klq"]
+[ext_resource type="Resource" uid="uid://d33j8r8ov3y48" path="res://items/a_ninja_suit.tres" id="25_0j6pc"]
+[ext_resource type="PackedScene" uid="uid://rka0fnqpei3e" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="26_abg8o"]
+[ext_resource type="Resource" uid="uid://dehbl6u18edve" path="res://items/w_katana.tres" id="27_45xa8"]
 
 [sub_resource type="GDScript" id="GDScript_xflnv"]
 script/source = "extends Node
@@ -346,3 +350,11 @@ Quest: Long Quest
 Checking if quest is complete"
 
 [node name="Pot" parent="QuestActivatedSwitch3" instance=ExtResource("18_j3pfp")]
+
+[node name="ItemPickup" parent="." instance=ExtResource("24_a2klq")]
+position = Vector2(184, 88)
+item_data = ExtResource("25_0j6pc")
+
+[node name="Treasure-chest" parent="." instance=ExtResource("26_abg8o")]
+position = Vector2(48, 96)
+item_data = ExtResource("27_45xa8")
