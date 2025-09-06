@@ -168,6 +168,8 @@ func damage_taken( _hurt_box : HurtBox) -> void:
 	hp = clampi(hp - _hurt_box.damage, 0, max_hp)
 	damage_count += 1
 	PlayerHud.update_boss_health(hp,max_hp)
+	EffectManager.damage_text( _hurt_box.damage, boss_node.global_position + Vector2(0,-56))
+	#EffectManager.damage_text(_hurt_box.damage, global_position + Vector2(0,-36))
 	animation_player_damaged.play("damaged")
 	animation_player_damaged.seek(0)
 	animation_player_damaged.queue("default")
