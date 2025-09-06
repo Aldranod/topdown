@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkw2fj12qwp1f"]
+[gd_scene load_steps=17 format=3 uid="uid://bkw2fj12qwp1f"]
 
 [ext_resource type="Script" uid="uid://gxu8vi1uclil" path="res://GUI/pause_menu/pause_menu.gd" id="1_vhkkt"]
 [ext_resource type="Texture2D" uid="uid://ssobr7llhmdq" path="res://items/sprites/items.png" id="2_dfhdr"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cqmid2ol16hjd" path="res://GUI/pause_menu/quests_ui.gd" id="6_16eqs"]
 [ext_resource type="PackedScene" uid="uid://c6ci1n6mdr47a" path="res://GUI/pause_menu/quests/quest_item.tscn" id="6_408tb"]
 [ext_resource type="PackedScene" uid="uid://drkwph2gh0fl" path="res://GUI/pause_menu/stats/stats.tscn" id="6_ybaie"]
+[ext_resource type="Texture2D" uid="uid://uxuqoqnbv302" path="res://items/sprites/gear.png" id="7_mnpje"]
 [ext_resource type="FontFile" uid="uid://blofs77f4laor" path="res://GUI/fonts/Abaddon Bold.ttf" id="8_uh56w"]
 [ext_resource type="FontFile" uid="uid://b3vfln84rwak7" path="res://GUI/fonts/m5x7.ttf" id="9_rlqlv"]
 [ext_resource type="PackedScene" uid="uid://v41ptl60udd3" path="res://GUI/pause_menu/quests/quest_step_item.tscn" id="10_ai8h2"]
@@ -27,6 +28,10 @@ texture_margin_left = 14.0
 texture_margin_top = 14.0
 texture_margin_right = 14.0
 texture_margin_bottom = 14.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yxpl"]
+atlas = ExtResource("7_mnpje")
+region = Rect2(0, 16, 16, 16)
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -153,6 +158,34 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InventorySlot20" parent="Control/TabContainer/Inventory/PanelContainer/GridContainer" instance=ExtResource("3_laftm")]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 86.0
+offset_right = 452.0
+offset_bottom = 246.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_408tb")
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer2"]
+layout_mode = 2
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_3yxpl")
+
+[node name="InventorySlot_Armor" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
+layout_mode = 2
+
+[node name="InventorySlot_Amulet" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
+layout_mode = 2
+
+[node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
+layout_mode = 2
+
+[node name="InventorySlot_Ring" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
 layout_mode = 2
 
 [node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_ybaie")]
