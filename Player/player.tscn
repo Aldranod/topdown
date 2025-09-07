@@ -1,9 +1,11 @@
-[gd_scene load_steps=90 format=3 uid="uid://dbe7ar1xpjjx6"]
+[gd_scene load_steps=92 format=3 uid="uid://dbe7ar1xpjjx6"]
 
 [ext_resource type="Script" uid="uid://dadk2yuxm8np4" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://djwdk5sk04xwc" path="res://Player/Sprites/player_sprite.png" id="2_b1ygp"]
 [ext_resource type="Texture2D" uid="uid://b7rsq7ec2lykr" path="res://Player/Sprites/Shadow.png" id="3_00tjw"]
+[ext_resource type="Texture2D" uid="uid://bbywv4x3kg6s7" path="res://Player/Sprites/player_sprite_sword.png" id="3_bbimk"]
 [ext_resource type="Script" uid="uid://b8g4m3g6ejj3o" path="res://Player/Scripts/player_state_machine.gd" id="3_btcbx"]
+[ext_resource type="Script" uid="uid://dx7vu7qbxi4rf" path="res://Player/Scripts/player_sprite.gd" id="3_m0h3t"]
 [ext_resource type="Texture2D" uid="uid://bakexfjnubsk1" path="res://Player/Sprites/AttackSprite01.png" id="3_vtle1"]
 [ext_resource type="Script" uid="uid://cx0wp0ih0ihoj" path="res://Player/Scripts/state_idle.gd" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://bylgs4k03bjia" path="res://Player/Scripts/state_walk.gd" id="5_k53q1"]
@@ -1620,6 +1622,19 @@ position = Vector2(0, -21)
 texture = ExtResource("2_b1ygp")
 hframes = 16
 vframes = 8
+script = ExtResource("3_m0h3t")
+
+[node name="Sprite2D_Weapon_Below" type="Sprite2D" parent="Sprite2D"]
+show_behind_parent = true
+texture = ExtResource("3_bbimk")
+hframes = 16
+vframes = 16
+
+[node name="Sprite2D_Weapon_Above" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("3_bbimk")
+hframes = 16
+vframes = 16
+frame = 128
 
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0, 0, 0, 0.784314)

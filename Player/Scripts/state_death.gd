@@ -11,6 +11,7 @@ func Enter() -> void:
 	player.animation_player.play("death")
 	audio.stream = exhaust_audio
 	audio.play()
+	PlayerHud.hide_boss_health()
 	PlayerHud.show_game_over_screen()
 	AudioManager.play_music( null )
 	pass
