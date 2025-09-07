@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkw2fj12qwp1f"]
+[gd_scene load_steps=23 format=3 uid="uid://bkw2fj12qwp1f"]
 
 [ext_resource type="Script" uid="uid://gxu8vi1uclil" path="res://GUI/pause_menu/pause_menu.gd" id="1_vhkkt"]
 [ext_resource type="Texture2D" uid="uid://ssobr7llhmdq" path="res://items/sprites/items.png" id="2_dfhdr"]
@@ -32,6 +32,27 @@ texture_margin_bottom = 14.0
 [sub_resource type="AtlasTexture" id="AtlasTexture_3yxpl"]
 atlas = ExtResource("7_mnpje")
 region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mnpje"]
+load_path = "res://.godot/imported/gear.png-5daf42b040f457a996f89d78af25c936.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtmg6"]
+atlas = SubResource("CompressedTexture2D_mnpje")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hio0w"]
+load_path = "res://.godot/imported/gear.png-5daf42b040f457a996f89d78af25c936.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_320ax"]
+atlas = SubResource("CompressedTexture2D_hio0w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1v4th"]
+load_path = "res://.godot/imported/gear.png-5daf42b040f457a996f89d78af25c936.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iygof"]
+atlas = SubResource("CompressedTexture2D_1v4th")
+region = Rect2(16, 16, 16, 16)
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -163,9 +184,9 @@ layout_mode = 2
 [node name="PanelContainer2" type="PanelContainer" parent="Control/TabContainer/Inventory"]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 86.0
+offset_top = 94.0
 offset_right = 452.0
-offset_bottom = 246.0
+offset_bottom = 182.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_408tb")
 
 [node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/PanelContainer2"]
@@ -173,19 +194,53 @@ layout_mode = 2
 columns = 5
 
 [node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 texture = SubResource("AtlasTexture_3yxpl")
+stretch_mode = 3
 
 [node name="InventorySlot_Armor" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_gtmg6")
+stretch_mode = 3
 
 [node name="InventorySlot_Amulet" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_320ax")
+stretch_mode = 3
 
 [node name="InventorySlot_Weapon" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
+unique_name_in_owner = true
 layout_mode = 2
 
+[node name="TextureRect4" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = SubResource("AtlasTexture_iygof")
+stretch_mode = 3
+
 [node name="InventorySlot_Ring" parent="Control/TabContainer/Inventory/PanelContainer2/GridContainer" instance=ExtResource("3_laftm")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Stats" parent="Control/TabContainer/Inventory" instance=ExtResource("6_ybaie")]
