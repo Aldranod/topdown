@@ -46,8 +46,7 @@ func item_pressed()	-> void:
 			slot_data.quantity -= 1
 			if slot_data == null:
 				return
-			else:	
-				label.text = str(slot_data.quantity)	
+			label.text = str(slot_data.quantity)	
 	pass
 		
 	

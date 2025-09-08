@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=28 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
 [ext_resource type="PackedScene" uid="uid://6c813gpotmec" path="res://Levels/player_spawn.tscn" id="3_mwxiv"]
+[ext_resource type="PackedScene" uid="uid://65ltrbv0lnuk" path="res://Tile Maps/Sprites/shop_tilemap_layer.tscn" id="4_0j6pc"]
 [ext_resource type="PackedScene" uid="uid://bb8dgsbakkvln" path="res://Tile Maps/grass-tiles-01.tscn" id="4_m4nom"]
 [ext_resource type="PackedScene" uid="uid://blmuv7dk7ny5" path="res://Props/Plants/plant.tscn" id="4_tek06"]
 [ext_resource type="PackedScene" uid="uid://bb0ycm44mxofe" path="res://Levels/level_transition.tscn" id="5_mwxiv"]
@@ -18,10 +19,8 @@
 [ext_resource type="Script" uid="uid://fshksdm1ixai" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="16_xiy2e"]
 [ext_resource type="Script" uid="uid://c5uj5hel8n7vv" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="17_j3pfp"]
 [ext_resource type="PackedScene" uid="uid://dsqvx0e8msa5u" path="res://Props/pot/Pot.tscn" id="18_j3pfp"]
-[ext_resource type="PackedScene" uid="uid://ds8xpl317dck1" path="res://Interactables/Dungeon/pressure_plate.tscn" id="19_2rucc"]
 [ext_resource type="Resource" uid="uid://d2k348kbuqax4" path="res://quests/recover_lost_flute.tres" id="20_2rucc"]
 [ext_resource type="PackedScene" uid="uid://cq546xmyh16lb" path="res://quests/utility_nodes/quest_advance_trigger.tscn" id="20_wrnjp"]
-[ext_resource type="Resource" uid="uid://ditbdn2uxoskb" path="res://quests/long_quest.tres" id="21_wrnjp"]
 [ext_resource type="PackedScene" uid="uid://dfao1r52i6rrt" path="res://quests/utility_nodes/quest_activated_switch.tscn" id="23_xflnv"]
 [ext_resource type="PackedScene" uid="uid://cg2bbqxjj76ei" path="res://items/item_pickup/item_pickup.tscn" id="24_a2klq"]
 [ext_resource type="Resource" uid="uid://d33j8r8ov3y48" path="res://items/a_ninja_suit.tres" id="25_0j6pc"]
@@ -50,6 +49,9 @@ music = ExtResource("2_icgqb")
 z_index = -2
 tile_map_data = PackedByteArray("AAD+//7/AQAAAAAAAAD+////AQACAAQAAAD+/wAAAQACAAUAAAD+/wEAAQACAAYAAAD+/wIAAQANAAQAAAD+/wMAAQABAAIAAAD+/wQAAQABAAIAAAD+/wUAAQABAAIAAAD+/wYAAQABAAIAAAD+/wcAAQABAAIAAAD+/wgAAQABAAIAAAD+/wkAAQABAAIAAAD///7/AQABAAAAAAD/////AQACAAQAAAD//wAAAQACAAUAAAD//wEAAQACAAYAAAD//wIAAQAOAAQAAAD//wMAAQAOAAUAAAD//wQAAQAOAAUAAAD//wUAAQAOAAUAAAD//wYAAQAOAAUAAAD//wcAAQAOAAUAAAD//wgAAQAOAAUAAAD//wkAAQAOAAUAAAAAAP7/AQACAAAAAAAAAP//AQACAAQAAAAAAAAAAQACAAUAAAAAAAEAAQACAAYAAAAAAAIAAQABAAIAAAAAAAMAAQABAAIAAAAAAAQAAQABAAIAAAAAAAUAAQABAAIAAAAAAAYAAQAFAAAAAAAAAAcAAQAEAAEAAAAAAAgAAQAEAAIAAAAAAAkAAQAKAAQAAAABAP7/AQAAAAEAAAABAP//AQACAAQAAAABAAAAAQACAAUAAAABAAEAAQACAAYAAAABAAIAAQABAAIAAAABAAMAAQABAAIAAAABAAQAAQABAAIAAAABAAUAAQAFAAAAAAABAAYAAQAHAAIAAAABAAcAAQABAAIAAAABAAgAAQABAAIAAAABAAkAAQALAAQAAAACAP7/AQABAAEAAAACAP//AQACAAQAAAACAAAAAQACAAUAAAACAAEAAQACAAYAAAACAAIAAQABAAIAAAACAAMAAQABAAIAAAACAAQAAQABAAIAAAACAAUAAQAGAAMAAAACAAYAAQABAAIAAAACAAcAAQABAAIAAAACAAgAAQABAAIAAAACAAkAAQAMAAQAAAADAP7/AQACAAEAAAADAP//AQACAAQAAAADAAAAAQACAAUAAAADAAEAAQACAAYAAAADAAIAAQABAAIAAAADAAMAAQABAAIAAAADAAQAAQABAAIAAAADAAUAAQAGAAMAAAADAAYAAQABAAIAAAADAAcAAQABAAIAAAADAAgAAQABAAIAAAADAAkAAQANAAQAAAAEAP7/AQAAAAAAAAAEAP//AQADAAQAAAAEAAAAAQADAAUAAAAEAAEAAQANAAcAAAAEAAIAAQABAAIAAAAEAAMAAQAEAAAAAAAEAAQAAQAEAAEAAAAEAAUAAQAGAAIAAAAEAAYAAQABAAIAAAAEAAcAAQABAAIAAAAEAAgAAQABAAIAAAAEAAkAAQAMAAQAAAAFAP7/AQAOAAUAAAAFAP//AQAOAAYAAAAFAAAAAQAJAAcAAAAFAAEAAQAOAAcAAAAFAAIAAQABAAIAAAAFAAMAAQABAAIAAAAFAAQAAQABAAIAAAAFAAUAAQAGAAMAAAAFAAYAAQABAAIAAAAFAAcAAQAEAAMAAAAFAAgAAQABAAIAAAAFAAkAAQAMAAQAAAAGAAEAAQAMAAMAAAAGAAIAAQABAAIAAAAGAAMAAQABAAIAAAAGAAQAAQABAAIAAAAGAAUAAQAHAAMAAAAGAAYAAQABAAIAAAAGAAcAAQABAAIAAAAGAAgAAQABAAIAAAAGAAkAAQAMAAQAAAAHAAEAAQAJAAIAAAAHAAIAAQAMAAEAAAAHAAMAAQAFAAIAAAAHAAQAAQABAAIAAAAHAAUAAQABAAIAAAAHAAYAAQABAAIAAAAHAAcAAQABAAIAAAAHAAgAAQABAAIAAAAHAAkAAQAMAAQAAAAIAAEAAQAPAAIAAAAIAAIAAQAPAAIAAAAIAAMAAQAKAAEAAAAIAAQAAQAMAAEAAAAIAAUAAQAMAAMAAAAIAAYAAQABAAIAAAAIAAcAAQABAAIAAAAIAAgAAQABAAIAAAAIAAkAAQAMAAQAAAAJAP7/AQAKAAUAAAAJAP//AQAKAAYAAAAJAAAAAQAJAAYAAAAJAAEAAQAKAAcAAAAJAAIAAQABAAIAAAAJAAMAAQAPAAAAAAAJAAQAAQAKAAEAAAAJAAUAAQANAAMAAAAJAAYAAQABAAIAAAAJAAcAAQABAAIAAAAJAAgAAQABAAIAAAAJAAkAAQAMAAQAAAAKAP7/AQABAAMAAAAKAP//AQADAAQAAAAKAAAAAQADAAUAAAAKAAEAAQALAAcAAAAKAAIAAQABAAIAAAAKAAMAAQABAAIAAAAKAAQAAQAKAAAAAAAKAAUAAQAPAAIAAAAKAAYAAQAMAAMAAAAKAAcAAQABAAIAAAAKAAgAAQABAAIAAAAKAAkAAQAMAAQAAAALAP7/AQABAAMAAAALAP//AQADAAQAAAALAAAAAQADAAUAAAALAAEAAQADAAYAAAALAAIAAQABAAIAAAALAAMAAQABAAIAAAALAAQAAQAHAAMAAAALAAUAAQABAAIAAAALAAYAAQAHAAMAAAALAAcAAQABAAIAAAALAAgAAQABAAIAAAALAAkAAQAMAAQAAAAMAP7/AQABAAMAAAAMAP//AQADAAQAAAAMAAAAAQADAAUAAAAMAAEAAQADAAYAAAAMAAIAAQABAAIAAAAMAAMAAQABAAIAAAAMAAQAAQABAAIAAAAMAAUAAQABAAIAAAAMAAYAAQABAAIAAAAMAAcAAQABAAIAAAAMAAgAAQABAAIAAAAMAAkAAQAMAAQAAAANAP7/AQABAAEAAAANAP//AQAEAAQAAAANAAAAAQAEAAUAAAANAAEAAQAEAAYAAAANAAIAAQABAAIAAAANAAMAAQABAAIAAAANAAQAAQABAAIAAAANAAUAAQABAAIAAAANAAYAAQABAAIAAAANAAcAAQABAAIAAAANAAgAAQABAAIAAAANAAkAAQAMAAQAAAAOAP7/AQACAAEAAAAOAP//AQACAAQAAAAOAAAAAQACAAUAAAAOAAEAAQACAAYAAAAOAAIAAQABAAIAAAAOAAMAAQABAAIAAAAOAAQAAQABAAIAAAAOAAUAAQABAAIAAAAOAAYAAQABAAIAAAAOAAcAAQABAAIAAAAOAAgAAQABAAIAAAAOAAkAAQAOAAQAAAAPAP7/AQADAAEAAAAPAP//AQADAAQAAAAPAAAAAQADAAUAAAAPAAEAAQADAAYAAAAPAAIAAQAKAAQAAAAPAAMAAQAKAAUAAAAPAAQAAQAKAAUAAAAPAAUAAQAKAAUAAAAPAAYAAQAKAAUAAAAPAAcAAQAKAAUAAAAPAAgAAQAKAAUAAAAPAAkAAQAKAAUAAAAQAP7/AQABAAMAAAAQAP//AQAEAAQAAAAQAAAAAQAEAAUAAAAQAAEAAQAEAAYAAAAQAAIAAQALAAQAAAAQAAMAAQABAAIAAAAQAAQAAQABAAIAAAAQAAUAAQABAAIAAAAQAAYAAQABAAIAAAAQAAcAAQABAAIAAAAQAAgAAQABAAIAAAAQAAkAAQABAAIAAAAGAAAAAQAMAAEAAAAGAP//AQAMAAEAAAAGAP7/AQAMAAEAAAAIAAAAAQAPAAIAAAAIAP//AQAPAAIAAAAIAP7/AQAPAAIAAAAHAAAAAQANAAIAAAAHAP//AQANAAIAAAAHAP7/AQANAAIAAAA=")
 
+[node name="ShopTilemapLayer" parent="." instance=ExtResource("4_0j6pc")]
+tile_map_data = PackedByteArray("AAAKAAMAAAAMAA4AAAAKAAQAAAAMAA8AAAALAAMAAAANAA4AAAALAAQAAAANAA8AAAAMAAMAAAAKAA4AAAAMAAQAAAAKAA8AAAANAAMAAAALAA4AAAANAAQAAAALAA8AAAAOAAMAAAAOAAwAAAAOAAQAAAAOAA0AAAAOAAIAAAAOAAsAAAAKAAIAAAAMAAwAAAALAAIAAAAMAAwAAAANAAIAAAANAAsAAAAKAAEAAAALAAsAAAALAAEAAAAMAAsAAAANAAEAAAAOAAsAAAAOAAEAAAAOAAoAAAAJAAMAAAAKAAwAAAAJAAQAAAAKAA0AAAAIAP//AAAKAAgAAAAIAAAAAAAKAAkAAAAIAAEAAAAKAAoAAAAIAAIAAAAKAAsAAAAJAP//AAALAAgAAAAJAAAAAAALAAkAAAAJAAEAAAALAAoAAAAJAAIAAAALAAsAAAAOAP//AAAOAAgAAAAOAAAAAAAOAAkAAAAPAP//AAAPAAgAAAAPAAAAAAAPAAkAAAAPAAEAAAAPAAoAAAAPAAIAAAAPAAsAAAAMAAAAAAANAAoAAAALAAAAAAAMAAoAAAAMAAIAAAAMAAwAAAAMAAEAAAANAAsAAAAKAAAAAAALAAoAAAANAAAAAAAOAAoAAAALAP3/AAAMAAcAAAALAP7/AAAMAAgAAAALAP//AAAMAAkAAAAMAP3/AAANAAcAAAAMAP7/AAANAAgAAAAMAP//AAANAAkAAAAKAP7/AAALAAgAAAANAP7/AAAOAAgAAAANAP3/AAAOAAcAAAAOAP7/AAAOAAcAAAAKAP3/AAALAAcAAAAKAP//AAALAAkAAAAJAP7/AAALAAcAAAANAP//AAALAAkAAAAIAAUAAAAJAAAAAAAIAAYAAAAJAAEAAAAJAAUAAAAKAAAAAAAJAAYAAAAKAAEAAAAKAAUAAAALAAAAAAAKAAYAAAALAAEAAAA=")
+
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_mwxiv")]
 position = Vector2(243, 244)
 
@@ -57,7 +59,7 @@ position = Vector2(243, 244)
 position = Vector2(512, 184)
 
 [node name="Plant5" parent="." instance=ExtResource("4_tek06")]
-position = Vector2(384, 176)
+position = Vector2(336, 272)
 
 [node name="Plant6" parent="." instance=ExtResource("4_tek06")]
 position = Vector2(400, 272)
@@ -113,37 +115,20 @@ npc_resource = ExtResource("15_mxs1d")
 
 [node name="NpcBehaviorPatrol" parent="NPC_Nero" instance=ExtResource("10_q5iyu")]
 
-[node name="PatrolLocation" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+[node name="PatrolLocation0" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(1, 0, 0, 1)
+position = Vector2(-32, -120)
+wait_time = 1.0
+
+[node name="PatrolLocation1" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-40, 0)
 wait_time = 1.0
 
 [node name="PatrolLocation2" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
-modulate = Color(1, 1, 0, 1)
-position = Vector2(-40, -96)
-wait_time = 2.0
-
-[node name="PatrolLocation3" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(-48, -56)
-wait_time = 2.0
-
-[node name="PatrolLocation5" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-48, -32)
-
-[node name="PatrolLocation6" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
-modulate = Color(0, 0, 1, 1)
-position = Vector2(-72, -24)
-wait_time = 2.0
-
-[node name="PatrolLocation7" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
-modulate = Color(1, 0, 1, 1)
-position = Vector2(-80, 0)
-
-[node name="PatrolLocation8" parent="NPC_Nero/NpcBehaviorPatrol" instance=ExtResource("11_sci0f")]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(-104, 0)
-wait_time = 2.0
+position = Vector2(40, -80)
+wait_time = 1.0
 
 [node name="QuestActivatedSwitch" parent="NPC_Nero" instance=ExtResource("23_xflnv")]
 remove_when_activated = true
@@ -283,76 +268,10 @@ script = SubResource("GDScript_xflnv")
 position = Vector2(216, 288)
 
 [node name="Pot2" parent="." instance=ExtResource("18_j3pfp")]
-position = Vector2(264, 296)
-
-[node name="PressurePlate" parent="." instance=ExtResource("19_2rucc")]
-z_index = -1
-position = Vector2(352, 112)
-
-[node name="QuestAdvanceTrigger" parent="PressurePlate" instance=ExtResource("20_wrnjp")]
-signal_name = "activated"
-linked_quest = ExtResource("21_wrnjp")
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Step: 0 - N/A
-Complete: false"
-
-[node name="QuestActivatedSwitch" parent="." instance=ExtResource("23_xflnv")]
-position = Vector2(400, 112)
-react_to_global_signal = true
-linked_quest = ExtResource("21_wrnjp")
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Checking if player has quest"
-
-[node name="PressurePlate2" parent="QuestActivatedSwitch" instance=ExtResource("19_2rucc")]
-z_index = -1
-
-[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch/PressurePlate2" instance=ExtResource("20_wrnjp")]
-signal_name = "activated"
-linked_quest = ExtResource("21_wrnjp")
-quest_step = 1
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Step: 1 - step 1
-Complete: false"
-
-[node name="QuestActivatedSwitch2" parent="." instance=ExtResource("23_xflnv")]
-position = Vector2(448, 112)
-check_type = 2
-react_to_global_signal = true
-linked_quest = ExtResource("21_wrnjp")
-quest_step = 2
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Checking if player is on step: step 2"
-
-[node name="PressurePlate3" parent="QuestActivatedSwitch2" instance=ExtResource("19_2rucc")]
-z_index = -1
-
-[node name="QuestAdvanceTrigger" parent="QuestActivatedSwitch2/PressurePlate3" instance=ExtResource("20_wrnjp")]
-signal_name = "activated"
-linked_quest = ExtResource("21_wrnjp")
-quest_step = 2
-quest_complete = true
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Step: 2 - step 2
-Complete: true"
-
-[node name="QuestActivatedSwitch3" parent="." instance=ExtResource("23_xflnv")]
-position = Vector2(280, 88)
-check_type = 3
-react_to_global_signal = true
-linked_quest = ExtResource("21_wrnjp")
-settings_summary = "UPDATE QUEST:
-Quest: Long Quest
-Checking if quest is complete"
-
-[node name="Pot" parent="QuestActivatedSwitch3" instance=ExtResource("18_j3pfp")]
+position = Vector2(176, 288)
 
 [node name="ItemPickup" parent="." instance=ExtResource("24_a2klq")]
-position = Vector2(184, 88)
+position = Vector2(16, 184)
 item_data = ExtResource("25_0j6pc")
 
 [node name="Treasure-chest" parent="." instance=ExtResource("26_abg8o")]
