@@ -42,6 +42,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="top-down"
 
+[global_group]
+
+tilemaps="Tilemaps with footsteps"
+
 [input]
 
 ui_accept={
