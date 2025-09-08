@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=29 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://blmuv7dk7ny5" path="res://Props/Plants/plant.tscn" id="4_tek06"]
 [ext_resource type="PackedScene" uid="uid://bb0ycm44mxofe" path="res://Levels/level_transition.tscn" id="5_mwxiv"]
 [ext_resource type="PackedScene" uid="uid://cjmtuh5qbw2pw" path="res://npc/npc.tscn" id="7_icgqb"]
-[ext_resource type="Script" uid="uid://cy2n6ytih2skh" path="res://Levels/scripts/level_transition.gd" id="8_abg8o"]
+[ext_resource type="PackedScene" uid="uid://bb3jg2dmd2khe" path="res://Levels/level_transition_interact.tscn" id="8_abg8o"]
 [ext_resource type="Resource" uid="uid://c1rvd27i7p1rp" path="res://npc/00_npcs/npc_01.tres" id="8_jeo2k"]
 [ext_resource type="PackedScene" uid="uid://b0p20sqekaail" path="res://npc/npc_behavior_wander.tscn" id="8_ua1y0"]
 [ext_resource type="PackedScene" uid="uid://cambwa8ai73iq" path="res://npc/npc_behavior_patrol.tscn" id="10_q5iyu"]
@@ -27,10 +27,6 @@
 [ext_resource type="Resource" uid="uid://d33j8r8ov3y48" path="res://items/a_ninja_suit.tres" id="25_0j6pc"]
 [ext_resource type="PackedScene" uid="uid://rka0fnqpei3e" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="26_abg8o"]
 [ext_resource type="Resource" uid="uid://dehbl6u18edve" path="res://items/w_katana.tres" id="27_45xa8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_45xa8"]
-resource_local_to_scene = true
-size = Vector2(32, 32)
 
 [sub_resource type="GDScript" id="GDScript_xflnv"]
 script/source = "extends Node
@@ -84,19 +80,12 @@ level = "uid://c7ybst78fw08y"
 size = 3
 side = 2
 
-[node name="LevelTransition_shop" type="Area2D" parent="."]
+[node name="LevelTransition_Shop" parent="." instance=ExtResource("8_abg8o")]
 position = Vector2(352, 160)
-collision_layer = 0
-monitorable = false
-script = ExtResource("8_abg8o")
-level = "uid://c7ybst78fw08y"
+level = "uid://cbtvh4md226dg"
+center_player = true
 size = 1
 side = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransition_shop"]
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_45xa8")
-debug_color = Color(0.710425, 0.324488, 0.904354, 0.42)
 
 [node name="NPC" parent="." instance=ExtResource("7_icgqb")]
 position = Vector2(448, 216)

@@ -34,6 +34,11 @@ func _ready() -> void:
 	monitoring = false
 	_place_player()
 	await LevelManager.level_loaded
+	
+	#to avoid issues related to frame rate & physics process frame rate not syncing up
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	
 	monitoring = true
 	body_entered.connect( _player_entered)
 	pass
