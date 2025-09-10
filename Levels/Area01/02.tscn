@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=31 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
@@ -27,6 +27,8 @@
 [ext_resource type="Resource" uid="uid://d33j8r8ov3y48" path="res://items/a_ninja_suit.tres" id="25_0j6pc"]
 [ext_resource type="PackedScene" uid="uid://rka0fnqpei3e" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="26_abg8o"]
 [ext_resource type="Resource" uid="uid://dehbl6u18edve" path="res://items/w_katana.tres" id="27_45xa8"]
+[ext_resource type="Resource" uid="uid://1yi5jmltbl86" path="res://items/apple.tres" id="28_sbev4"]
+[ext_resource type="Resource" uid="uid://dh7avm20vuttc" path="res://items/gem.tres" id="29_vv7nh"]
 
 [sub_resource type="GDScript" id="GDScript_xflnv"]
 script/source = "extends Node
@@ -289,3 +291,23 @@ item_data = ExtResource("25_0j6pc")
 [node name="Treasure-chest" parent="." instance=ExtResource("26_abg8o")]
 position = Vector2(48, 96)
 item_data = ExtResource("27_45xa8")
+
+[node name="ItemPickup" parent="." instance=ExtResource("24_a2klq")]
+position = Vector2(136, 80)
+item_data = ExtResource("28_sbev4")
+
+[node name="ItemPickup2" parent="." instance=ExtResource("24_a2klq")]
+position = Vector2(192, 80)
+item_data = ExtResource("28_sbev4")
+
+[node name="ItemPickup3" parent="." instance=ExtResource("24_a2klq")]
+position = Vector2(192, 112)
+item_data = ExtResource("28_sbev4")
+
+[node name="ItemPickup4" parent="." instance=ExtResource("24_a2klq")]
+position = Vector2(248, 104)
+item_data = ExtResource("29_vv7nh")
+
+[node name="ItemPickup5" parent="." instance=ExtResource("24_a2klq")]
+position = Vector2(256, 160)
+item_data = ExtResource("29_vv7nh")

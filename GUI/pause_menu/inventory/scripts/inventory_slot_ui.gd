@@ -1,6 +1,10 @@
 class_name InventorySlotUI extends Button
 
 var slot_data : SlotData : set = set_slot_data
+var click_pos : Vector2 = Vector2.ZERO
+var dragging : bool = false
+var drag_texture: Control
+var drag_treshold : float = 16.0
 
 @onready var label: Label = $Label
 @onready var texture_rect: TextureRect = $TextureRect
@@ -11,6 +15,13 @@ func _ready() -> void:
 	focus_entered.connect( item_focused )
 	focus_exited.connect( item_unfocused )
 	pressed.connect( item_pressed)
+	button_down.connect( _on_button_down)
+	button_up.connect( _on_button_up)
+
+func _process(_delta: float) -> void:
+	if dragging:
+		drag_texture.position = get_local_mouse_position()
+	pass
 	
 func set_slot_data( value : SlotData ) -> void:
 	slot_data = value
@@ -49,4 +60,13 @@ func item_pressed()	-> void:
 			label.text = str(slot_data.quantity)	
 	pass
 		
-	
+func _on_button_down() -> void:
+	click_pos = get_global_mouse_position()
+	dragging = true
+	drag_texture = texture_rect.duplicate()
+	add_child(drag_texture)
+	pass
+
+func _on_button_up() -> void:
+	print("up")
+	pass	
