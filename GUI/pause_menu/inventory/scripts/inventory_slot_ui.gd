@@ -20,7 +20,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if dragging:
-		drag_texture.position = get_local_mouse_position()
+		drag_texture.position = get_local_mouse_position() - Vector2(16,16)
+		if outside_drag_treshold() == true:
+			drag_texture.modulate.a = 0.5
+		else: 
+			drag_texture.modulate.a = 0
 	pass
 	
 func set_slot_data( value : SlotData ) -> void:
@@ -45,7 +49,7 @@ func item_unfocused() -> void:
 	pass	
 	
 func item_pressed()	-> void:
-	if slot_data:
+	if slot_data and outside_drag_treshold() == false:
 		if slot_data.item_data:
 			var item = slot_data.item_data
 			if item is EquipableItemData:
@@ -64,9 +68,18 @@ func _on_button_down() -> void:
 	click_pos = get_global_mouse_position()
 	dragging = true
 	drag_texture = texture_rect.duplicate()
+	drag_texture.z_index = 10
+	drag_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(drag_texture)
 	pass
 
 func _on_button_up() -> void:
-	print("up")
+	dragging = false
+	if drag_texture:
+		drag_texture.free()
 	pass	
+
+func outside_drag_treshold() -> bool:
+	if get_global_mouse_position().distance_to(click_pos) > drag_treshold:
+		return true
+	return false
