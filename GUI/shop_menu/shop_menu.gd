@@ -17,6 +17,7 @@ var is_active : bool = false
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var shop_items_container: VBoxContainer = %ShopItemsContainer
 @onready var gems_label: Label = %GemsLabel
+@onready var gems_animation_player: AnimationPlayer = $Control/PanelContainer/AnimationPlayer
 
 @onready var item_image: TextureRect = %ItemImage
 @onready var item_name: Label = %ItemName
@@ -79,6 +80,7 @@ func populate_item_list( items : Array[ItemData]) -> void:
 		shop_item.setup_item(item)
 		shop_items_container.add_child(shop_item)
 		shop_item.focus_entered.connect(update_item_details.bind(item))
+		shop_item.pressed.connect(purchase_item.bind(item))
 		pass
 	pass
 
@@ -100,3 +102,19 @@ func update_item_details( item: ItemData) -> void:
 	item_price.text = str(item.cost)
 	item_held_count.text = str(get_item_quantity( item))
 	pass		
+
+func purchase_item( item : ItemData) -> void:
+	var can_purchase : bool = get_item_quantity(currency) >= item.cost
+	if can_purchase:
+		play_audio(PURCHASE)
+		var inv : InventoryData = PlayerManager.INVENTORY_DATA
+		inv.add_item(item)
+		inv.use_item(currency, item.cost)
+		update_gems()
+		update_item_details(item)
+		pass
+	else:
+		play_audio(ERROR)
+		gems_animation_player.play("not_enough_gems")
+		gems_animation_player.seek(0)	
+	pass
