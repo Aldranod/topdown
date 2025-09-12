@@ -12,6 +12,7 @@ type = 2
 value = 1
 name = ""
 description = ""
+cost = 10
 effects = Array[ExtResource("1_ftsd5")]([])
 metadata/_custom_type_script = "uid://cgh5nf2ude5c1"
 
@@ -27,5 +28,6 @@ sprite_texture = ExtResource("4_km4ux")
 name = "Tunic & Cape"
 description = "The tunic is clean and pressed, and the cape is oh-so-stylish."
 texture = SubResource("AtlasTexture_eoaxr")
+cost = 150
 effects = Array[ExtResource("1_ftsd5")]([])
 metadata/_custom_type_script = "uid://bqflwu4k7h7sy"

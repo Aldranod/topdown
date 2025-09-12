@@ -12,6 +12,7 @@ type = 2
 value = 5
 name = ""
 description = ""
+cost = 10
 effects = Array[ExtResource("1_n5qgx")]([])
 metadata/_custom_type_script = "uid://cgh5nf2ude5c1"
 
@@ -21,6 +22,7 @@ type = 1
 value = 1
 name = ""
 description = ""
+cost = 10
 effects = Array[ExtResource("1_n5qgx")]([])
 metadata/_custom_type_script = "uid://cgh5nf2ude5c1"
 
@@ -37,5 +39,6 @@ name = "Ninja Suit"
 description = "This ninaj suit is totally rad,
 and suprisingly comfy."
 texture = SubResource("AtlasTexture_eoaxr")
+cost = 500
 effects = Array[ExtResource("1_n5qgx")]([])
 metadata/_custom_type_script = "uid://bqflwu4k7h7sy"

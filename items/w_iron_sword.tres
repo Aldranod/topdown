@@ -12,6 +12,7 @@ type = 1
 value = 1
 name = ""
 description = ""
+cost = 10
 effects = Array[ExtResource("1_gtf66")]([])
 metadata/_custom_type_script = "uid://cgh5nf2ude5c1"
 
@@ -27,5 +28,6 @@ sprite_texture = ExtResource("4_iql6b")
 name = "Iron Sword"
 description = "A standard sword, made of iron."
 texture = SubResource("AtlasTexture_eoaxr")
+cost = 750
 effects = Array[ExtResource("1_gtf66")]([])
 metadata/_custom_type_script = "uid://bqflwu4k7h7sy"

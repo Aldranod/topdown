@@ -3,6 +3,9 @@ extends CanvasLayer
 const ERROR = preload("res://GUI/shop_menu/audio/error.wav")
 const OPEN_SHOP = preload("res://GUI/shop_menu/audio/open_shop.wav")
 const PURCHASE = preload("res://GUI/shop_menu/audio/purchase.wav")
+const SHOP_ITEM_BUTTON = preload("res://GUI/shop_menu/shop_item_button.tscn")
+
+var currency : ItemData = preload("res://items/gem.tres")
 
 signal shown
 signal hidden
@@ -10,6 +13,14 @@ signal hidden
 var is_active : bool = false
 @onready var close_button: Button = %CloseButton
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var shop_items_container: VBoxContainer = %ShopItemsContainer
+@onready var gems_label: Label = %GemsLabel
+
+@onready var item_image: TextureRect = %ItemImage
+@onready var item_name: Label = %ItemName
+@onready var item_description: Label = %ItemDescription
+@onready var item_price: Label = %ItemPrice
+@onready var item_held_count: Label = %ItemHeldCount
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -30,12 +41,16 @@ func show_menu( items : Array[ItemData],dialog_triggered : bool = true) -> void:
 	if dialog_triggered:
 		await DialogSystem.finished
 	enable_menu()
+	populate_item_list(items)
+	update_gems()
+	shop_items_container.get_child(0).grab_focus()
 	play_audio(OPEN_SHOP)
 	shown.emit()
 	pass
 	
 func hide_menu() -> void:
 	enable_menu(false)
+	clear_item_list()
 	hidden.emit()
 	pass	
 
@@ -43,6 +58,27 @@ func enable_menu( _enabled : bool = true) -> void:
 	get_tree().paused = _enabled
 	visible = _enabled
 	is_active = _enabled
+
+func update_gems() -> void:
+	gems_label.text = str(get_item_quantity(currency))
+	pass
+	
+func get_item_quantity(item : ItemData) -> int:
+	return PlayerManager.INVENTORY_DATA.get_item_held_quantity(item)
+	
+func clear_item_list() -> void:
+	for c in shop_items_container.get_children():
+		c.queue_free()
+	pass
+
+func populate_item_list( items : Array[ItemData]) -> void:
+	for item in items:
+		var shop_item : ShopItemButton = SHOP_ITEM_BUTTON.instantiate()
+		shop_item.setup_item(item)
+		shop_items_container.add_child(shop_item)
+		#connect signals
+		pass
+	pass
 
 func play_audio( _audio : AudioStream) -> void:
 	audio_stream_player.stream = _audio
