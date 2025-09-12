@@ -3,6 +3,8 @@ extends CanvasLayer
 const ERROR = preload("res://GUI/shop_menu/audio/error.wav")
 const OPEN_SHOP = preload("res://GUI/shop_menu/audio/open_shop.wav")
 const PURCHASE = preload("res://GUI/shop_menu/audio/purchase.wav")
+const MENU_FOCUS = preload("res://title_scene/audio/menu_focus.wav")
+const MENU_SELECT = preload("res://title_scene/audio/menu_select.wav")
 const SHOP_ITEM_BUTTON = preload("res://GUI/shop_menu/shop_item_button.tscn")
 
 var currency : ItemData = preload("res://items/gem.tres")
@@ -76,7 +78,7 @@ func populate_item_list( items : Array[ItemData]) -> void:
 		var shop_item : ShopItemButton = SHOP_ITEM_BUTTON.instantiate()
 		shop_item.setup_item(item)
 		shop_items_container.add_child(shop_item)
-		#connect signals
+		shop_item.focus_entered.connect(update_item_details.bind(item))
 		pass
 	pass
 
@@ -84,3 +86,17 @@ func play_audio( _audio : AudioStream) -> void:
 	audio_stream_player.stream = _audio
 	audio_stream_player.play()
 	pass
+	
+func focused_item_changed( item : ItemData) -> void:
+	play_audio(MENU_FOCUS)
+	if item:
+		update_item_details( item)
+	pass
+	
+func update_item_details( item: ItemData) -> void:
+	item_image.texture = item.texture
+	item_name.text = item.name
+	item_description.text = item.description
+	item_price.text = str(item.cost)
+	item_held_count.text = str(get_item_quantity( item))
+	pass		
