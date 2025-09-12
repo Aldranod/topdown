@@ -1,7 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://55x2ugrkellt"]
+[gd_scene load_steps=15 format=3 uid="uid://5ykiwb1tejk0"]
 
-[ext_resource type="Texture2D" uid="uid://bewg4l012arc2" path="res://Interactables/dialog/sprites/dialog_interactable.png" id="1_a5vth"]
-[ext_resource type="Script" uid="uid://b5mxkotjq3h5a" path="res://Interactables/dialog/scripts/dialog_interaction.gd" id="1_w4e83"]
+[ext_resource type="Script" uid="uid://bvjnoh4d2jilx" path="res://Interactables/shopkeeper/shopkeeper.gd" id="1_c7uoq"]
+[ext_resource type="PackedScene" uid="uid://cjmtuh5qbw2pw" path="res://npc/npc.tscn" id="2_f4o7l"]
+[ext_resource type="Resource" uid="uid://b465fltph6hko" path="res://npc/shopkeeper.tres" id="3_f4o7l"]
+[ext_resource type="Script" uid="uid://b5mxkotjq3h5a" path="res://Interactables/dialog/scripts/dialog_interaction.gd" id="4_rm5k1"]
+[ext_resource type="Texture2D" uid="uid://bewg4l012arc2" path="res://Interactables/dialog/sprites/dialog_interactable.png" id="5_l65jf"]
+[ext_resource type="Script" uid="uid://doa5j8sxy5b7q" path="res://Interactables/dialog/scripts/dialog_text.gd" id="5_rm5k1"]
+[ext_resource type="Script" uid="uid://fshksdm1ixai" path="res://Interactables/dialog/scripts/dialog_choice.gd" id="6_l65jf"]
+[ext_resource type="Script" uid="uid://c5uj5hel8n7vv" path="res://Interactables/dialog/scripts/dialog_branch.gd" id="7_cap4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4e83"]
 size = Vector2(44, 50)
@@ -124,26 +130,62 @@ _data = {
 &"show": SubResource("Animation_4fpja")
 }
 
-[node name="DialogInteraction" type="Area2D"]
+[node name="Shopkeeper" type="Node2D"]
+script = ExtResource("1_c7uoq")
+
+[node name="NPC" parent="." instance=ExtResource("2_f4o7l")]
+npc_resource = ExtResource("3_f4o7l")
+
+[node name="DialogInteraction" type="Area2D" parent="NPC"]
 process_mode = 3
 collision_layer = 0
 collision_mask = 4
 monitorable = false
-script = ExtResource("1_w4e83")
+script = ExtResource("4_rm5k1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/DialogInteraction"]
 z_index = 100
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_w4e83")
 debug_color = Color(0, 0.744, 0.448, 0.061)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="NPC/DialogInteraction"]
 position = Vector2(2, -52)
-texture = ExtResource("1_a5vth")
+texture = ExtResource("5_l65jf")
 hframes = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC/DialogInteraction"]
 process_mode = 3
 libraries = {
 &"": SubResource("AnimationLibrary_k34qd")
 }
 autoplay = "default"
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("5_rm5k1")
+text = "Hello Sir. 
+Take a look. I have a selection of finest goods!"
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://doa5j8sxy5b7q"
+
+[node name="DialogChoice" type="Node" parent="NPC/DialogInteraction"]
+script = ExtResource("6_l65jf")
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://fshksdm1ixai"
+
+[node name="DialogBranch" type="Node" parent="NPC/DialogInteraction/DialogChoice"]
+script = ExtResource("7_cap4d")
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://c5uj5hel8n7vv"
+
+[node name="DialogBranch2" type="Node" parent="NPC/DialogInteraction/DialogChoice"]
+script = ExtResource("7_cap4d")
+text = "No."
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://c5uj5hel8n7vv"
+
+[node name="DialogText" type="Node" parent="NPC/DialogInteraction/DialogChoice/DialogBranch2"]
+script = ExtResource("5_rm5k1")
+text = "I'll be here when you need some stuff!"
+npc_info = ExtResource("3_f4o7l")
+metadata/_custom_type_script = "uid://doa5j8sxy5b7q"

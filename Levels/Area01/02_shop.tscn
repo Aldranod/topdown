@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://65ltrbv0lnuk" path="res://Tile Maps/Sprites/shop_tilemap_layer.tscn" id="4_0asvh"]
 [ext_resource type="PackedScene" uid="uid://6c813gpotmec" path="res://Levels/player_spawn.tscn" id="5_w1irt"]
 [ext_resource type="PackedScene" uid="uid://bb0ycm44mxofe" path="res://Levels/level_transition.tscn" id="7_4lnbj"]
-[ext_resource type="Texture2D" uid="uid://cx2hyw8g0mxyc" path="res://npc/sprites/shopkeeper.png" id="7_cdc6r"]
+[ext_resource type="PackedScene" uid="uid://5ykiwb1tejk0" path="res://Interactables/shopkeeper/shopkeeper.tscn" id="7_cdc6r"]
 [ext_resource type="PackedScene" uid="uid://dsqvx0e8msa5u" path="res://Props/pot/Pot.tscn" id="22_mhjp3"]
 
 [node name="02" type="Node2D"]
@@ -92,9 +92,6 @@ target_transition_area = "LevelTransition_Shop"
 size = 1
 side = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Shopkeeper" parent="." instance=ExtResource("7_cdc6r")]
 z_index = -3
-position = Vector2(336, 72)
-texture = ExtResource("7_cdc6r")
-region_enabled = true
-region_rect = Rect2(0, 0, 38, 64)
+position = Vector2(336, 93)
