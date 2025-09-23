@@ -10,6 +10,8 @@ var boomerang_instance : Boomerang = null
 
 func _ready() -> void:
 	player = PlayerManager.player
+	PlayerHud.update_arrow_count(player.arrow_count)
+	PlayerHud.update_bomb_count(player.bomb_count)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ability"):

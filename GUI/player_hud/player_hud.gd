@@ -11,6 +11,12 @@ var hearts : Array[ HeartGUI ] = []
 @onready var animation_player: AnimationPlayer = $Control/GameOver/AnimationPlayer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
+@onready var abilities: Control = $Control/Abilities
+@onready var ability_items: HBoxContainer = $Control/Abilities/HBoxContainer
+@onready var arrow_count_label: Label = %ArrowCountLabel
+@onready var bomb_count_label: Label = %BombCountLabel
+
+
 @onready var boss_ui: Control = $Control/BossUI
 @onready var boss_hp_bar: TextureProgressBar = $Control/BossUI/TextureProgressBar
 @onready var boss_label: Label = $Control/BossUI/Label
@@ -109,4 +115,12 @@ func update_boss_health(hp: int, max_hp: int) -> void:
 
 func queue_notification(_title : String, _message: String) -> void:
 	notification.add_notification_to_queue(_title, _message)
+	pass
+	
+func update_arrow_count(count : int) -> void:
+	arrow_count_label.text = str(count)
+	pass
+
+func update_bomb_count(count : int) -> void:
+	bomb_count_label.text = str(count)
 	pass	
