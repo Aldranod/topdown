@@ -20,7 +20,19 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	position += move_dir * delta * move_speed
+	pass
+	
+func fire( fire_dir : Vector2) -> void:
+	move_dir = fire_dir
+	rotate_nodes()
 	pass	
+
+func rotate_nodes() -> void:
+	var angle : float = move_dir.angle()
+	sprite_2d.rotation = angle
+	sprite_2d_2.rotation = angle
+	hurt_box.rotation = angle
+	pass		
 		
 func _on_did_damage() -> void:
 	queue_free()

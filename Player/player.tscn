@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://dbe7ar1xpjjx6"]
+[gd_scene load_steps=101 format=3 uid="uid://dbe7ar1xpjjx6"]
 
 [ext_resource type="Script" uid="uid://dadk2yuxm8np4" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://djwdk5sk04xwc" path="res://Player/Sprites/player_sprite.png" id="2_b1ygp"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://c8krlodxx6vci" path="res://Player/Scripts/state_death.gd" id="20_76lrf"]
 [ext_resource type="AudioStream" uid="uid://bdb5fip74t2px" path="res://Player/Audio/exhausted.wav" id="21_efx54"]
 [ext_resource type="Script" uid="uid://ct26ps7ei5oyr" path="res://Player/Scripts/state_dash.gd" id="24_j2n6q"]
+[ext_resource type="Script" uid="uid://cbjpcgym6stwa" path="res://Player/Scripts/state_bow.gd" id="25_c6x0f"]
 [ext_resource type="AudioStream" uid="uid://lvdndyano63o" path="res://Player/Audio/level_up_jingle.wav" id="27_755ss"]
 [ext_resource type="FontFile" uid="uid://b3vfln84rwak7" path="res://GUI/fonts/m5x7.ttf" id="29_efx54"]
 [ext_resource type="PackedScene" uid="uid://dt6odjwlruvdn" path="res://GeneralNodes/footstep_audio_2d/footstep_audio_2d.tscn" id="33_i4o1l"]
@@ -1509,12 +1510,66 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_maysp"]
+resource_name = "bow_down"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [77, 78, 79, 78]
+}
+
+[sub_resource type="Animation" id="Animation_1l10g"]
+resource_name = "bow_up"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [80, 81, 82, 81]
+}
+
+[sub_resource type="Animation" id="Animation_6rl0i"]
+resource_name = "bow_side"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [83, 84, 85, 84]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_od3ui"]
 _data = {
 &"RESET": SubResource("Animation_4ntmi"),
 &"attack_down": SubResource("Animation_od3ui"),
 &"attack_side": SubResource("Animation_x3vf3"),
 &"attack_up": SubResource("Animation_00tjw"),
+&"bow_down": SubResource("Animation_maysp"),
+&"bow_side": SubResource("Animation_6rl0i"),
+&"bow_up": SubResource("Animation_1l10g"),
 &"carry_down": SubResource("Animation_j2n6q"),
 &"carry_side": SubResource("Animation_jp1hh"),
 &"carry_up": SubResource("Animation_c6x0f"),
@@ -1933,6 +1988,9 @@ exhaust_audio = ExtResource("21_efx54")
 script = ExtResource("24_j2n6q")
 move_speed = 250.0
 dash_audio = ExtResource("17_qemgg")
+
+[node name="Bow" type="Node" parent="StateMachine"]
+script = ExtResource("25_c6x0f")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
