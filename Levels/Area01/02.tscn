@@ -323,4 +323,4 @@ position = Vector2(256, 160)
 item_data = ExtResource("29_vv7nh")
 
 [node name="Bomb" parent="." instance=ExtResource("30_vv7nh")]
-position = Vector2(312, 360)
+position = Vector2(240, 336)
