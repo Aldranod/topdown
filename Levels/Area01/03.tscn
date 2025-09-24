@@ -27,7 +27,7 @@ position = Vector2(419, 122)
 position = Vector2(322, 219)
 
 [node name="LevelTransition" parent="." instance=ExtResource("5_koc1c")]
-position = Vector2(-160, 192)
+position = Vector2(-128, 192)
 level = "uid://c7ybst78fw08y"
 target_transition_area = "LevelTransition2"
 center_player = true

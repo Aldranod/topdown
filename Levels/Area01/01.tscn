@@ -538,13 +538,13 @@ rendering_quadrant_size = 32
 position = Vector2(242, 142)
 
 [node name="LevelTransition" parent="." instance=ExtResource("4_4t7i1")]
-position = Vector2(240, 544)
+position = Vector2(240, 534)
 level = "uid://uqb8s3jnfov"
 size = 3
 side = 3
 
 [node name="LevelTransition2" parent="." instance=ExtResource("4_4t7i1")]
-position = Vector2(706, 192)
+position = Vector2(682, 192)
 level = "uid://cq1bgaqn7vgva"
 side = 1
 
