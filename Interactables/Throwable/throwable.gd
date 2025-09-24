@@ -67,7 +67,7 @@ func throw() -> void:
 	pass
 
 func drop() -> void:
-	prop.get_parent().remove_child(prop)
+	prop.get_parent().call_deferred("remove_child", prop)
 	PlayerManager.player.get_parent().call_deferred("add_child", prop)
 	prop.position = PlayerManager.player.position
 	object_sprite.position.y = -50

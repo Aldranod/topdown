@@ -30,6 +30,12 @@ func _on_animation_changed( _old_name : String, _new_name : String) -> void:
 	animation_player.speed_scale = 1.0
 	pass	
 
+func player_interact() -> void:
+	super()
+	throw_speed = og_throw_speed
+	bounce_count = 0
+	pass
+
 func hit_ground() -> void:
 	bounce_count += 1
 	if bounce_count <= max_bounces:
@@ -38,5 +44,28 @@ func hit_ground() -> void:
 		throw_speed *= bounciness
 	else:
 		set_physics_process(false)
-			
+		hurt_box.set_deferred("monitoring", false)
+		hurt_box.did_damage.disconnect(did_damage)
+		wall_detect.body_entered.disconnect(_on_body_entered)
+		area_entered.connect( _on_area_enter) 
+		area_exited.connect( _on_area_exit)	
 	pass
+
+func did_damage() -> void:
+	var throw_magnitude : Vector2 = throw_direction.abs()
+	if throw_magnitude.x > throw_magnitude.y:
+		throw_direction *= Vector2(-1, 1)
+	else:
+		throw_direction *= Vector2(1,-1)
+	throw_speed *= bounciness
+	pass
+	
+func disable_collisions( _node : Node) -> void:
+	super( _node)
+	$"../HurtBox/CollisionShape2D".disabled = false
+	
+func drop() -> void:
+	super()
+	if animation_player.current_animation == "explode":
+		explosion_sprite.position = object_sprite.position
+		set_physics_process(false)	
