@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg2bbqxjj76ei"]
+[gd_scene load_steps=9 format=3 uid="uid://cg2bbqxjj76ei"]
 
 [ext_resource type="Script" uid="uid://pqwrsefcjs03" path="res://items/item_pickup/item_pickup.gd" id="1_vftl2"]
 [ext_resource type="AudioStream" uid="uid://bkgmnre66foi" path="res://items/item_pickup/item_pickup.wav" id="2_6sx5j"]
 [ext_resource type="Texture2D" uid="uid://b7rsq7ec2lykr" path="res://Player/Sprites/Shadow.png" id="2_jl14n"]
+[ext_resource type="FontFile" uid="uid://b3vfln84rwak7" path="res://GUI/fonts/m5x7.ttf" id="4_tc5ok"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sx5j"]
 
@@ -47,6 +48,7 @@ collision_layer = 0
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_vftl2")
+item_count = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6sx5j")
@@ -72,3 +74,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_7rq5k")
 }
 autoplay = "bounce"
+
+[node name="CountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_right = 24.0
+offset_bottom = 18.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_tc5ok")
+text = "99"
+horizontal_alignment = 1

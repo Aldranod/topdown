@@ -287,6 +287,7 @@ position = Vector2(456, 160)
 [node name="NinjaSuit" parent="." instance=ExtResource("24_oyxnq")]
 position = Vector2(24, 264)
 item_data = ExtResource("25_3wllx")
+item_count = 1
 
 [node name="Treasure-chest" parent="." instance=ExtResource("26_onddm")]
 position = Vector2(48, 96)
@@ -295,19 +296,24 @@ item_data = ExtResource("27_nh481")
 [node name="ItemPickup" parent="." instance=ExtResource("24_oyxnq")]
 position = Vector2(136, 80)
 item_data = ExtResource("28_ng4p7")
+item_count = 1
 
 [node name="ItemPickup2" parent="." instance=ExtResource("24_oyxnq")]
 position = Vector2(192, 80)
 item_data = ExtResource("28_ng4p7")
+item_count = 1
 
 [node name="ItemPickup3" parent="." instance=ExtResource("24_oyxnq")]
 position = Vector2(192, 112)
 item_data = ExtResource("28_ng4p7")
+item_count = 1
 
 [node name="ItemPickup4" parent="." instance=ExtResource("24_oyxnq")]
 position = Vector2(248, 104)
 item_data = ExtResource("29_e7pa0")
+item_count = 1
 
 [node name="ItemPickup5" parent="." instance=ExtResource("24_oyxnq")]
 position = Vector2(256, 160)
 item_data = ExtResource("29_e7pa0")
+item_count = 1

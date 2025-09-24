@@ -60,12 +60,10 @@ func bomb_ability() -> void:
 		return
 	elif state_machine.current_state == idle or state_machine.current_state == walk:
 		player.bomb_count -=1
-		PlayerHud.update_bomb_count(player.bomb_count)
 		lift.start_anim_late = true
 		var bomb : Node2D = BOMB.instantiate()
 		player.add_sibling(bomb)
 		bomb.global_position = player.global_position	
-		
 		PlayerManager.interact_handled = false
 		var throwable : ThrowableBomb = bomb.find_child("Throwable")
 		throwable.player_interact()
@@ -76,6 +74,5 @@ func bow_ability() -> void:
 		return
 	elif state_machine.current_state == idle or state_machine.current_state == walk:
 		player.arrow_count -= 1
-		PlayerHud.update_arrow_count(player.arrow_count)
 		player.state_machine.change_state(bow)
 	pass
