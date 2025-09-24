@@ -4,6 +4,7 @@ class_name State_Grapple extends State
 @onready var grapple_hook: Node2D = %GrappleHook
 @onready var nine_patch_rect: NinePatchRect = $"../../GrappleHook/NinePatchRect"
 @onready var chain_audio_player: AudioStreamPlayer2D = $"../../GrappleHook/AudioStreamPlayer2D"
+@onready var grapple_ray_cast_2d: RayCast2D = %GrappleRayCast2D
 
 @export var grapple_distance : float = 100.0
 @export var grapple_speed : float = 200.0
@@ -32,6 +33,12 @@ var pos_map : Dictionary = {
 	Vector2.LEFT: 2,
 	Vector2.RIGHT: 3
 }
+
+func init() -> void:
+	grapple_hook.visible = false
+	#grapple_ray_cast_2d.enabled = false
+	grapple_ray_cast_2d.target_position.y = grapple_distance
+	pass
 
 func Enter() -> void:
 	print("grapple state!")
