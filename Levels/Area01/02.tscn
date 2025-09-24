@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=32 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
@@ -29,6 +29,7 @@
 [ext_resource type="Resource" uid="uid://dehbl6u18edve" path="res://items/w_katana.tres" id="27_45xa8"]
 [ext_resource type="Resource" uid="uid://1yi5jmltbl86" path="res://items/apple.tres" id="28_sbev4"]
 [ext_resource type="Resource" uid="uid://dh7avm20vuttc" path="res://items/gem.tres" id="29_vv7nh"]
+[ext_resource type="PackedScene" uid="uid://dia64hhpfm0kw" path="res://Interactables/bomb/bomb.tscn" id="30_vv7nh"]
 
 [sub_resource type="GDScript" id="GDScript_xflnv"]
 script/source = "extends Node
@@ -320,3 +321,6 @@ item_data = ExtResource("29_vv7nh")
 [node name="ItemPickup5" parent="." instance=ExtResource("24_a2klq")]
 position = Vector2(256, 160)
 item_data = ExtResource("29_vv7nh")
+
+[node name="Bomb" parent="." instance=ExtResource("30_vv7nh")]
+position = Vector2(312, 360)
