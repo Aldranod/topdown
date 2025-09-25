@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://dbe7ar1xpjjx6"]
+[gd_scene load_steps=108 format=3 uid="uid://dbe7ar1xpjjx6"]
 
 [ext_resource type="Script" uid="uid://dadk2yuxm8np4" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://djwdk5sk04xwc" path="res://Player/Sprites/player_sprite.png" id="2_b1ygp"]
@@ -1851,6 +1851,9 @@ gravity = Vector3(0, -250, 0)
 color = Color(0.0309054, 0.738281, 0.321227, 1)
 color_ramp = SubResource("GradientTexture1D_ie76m")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d30e8"]
+size = Vector2(14, 20)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 24
 motion_mode = 1
@@ -2000,6 +2003,8 @@ script = ExtResource("25_c6x0f")
 
 [node name="Grapple" type="Node" parent="StateMachine"]
 script = ExtResource("26_qs4pp")
+grapple_distance = 180.0
+grapple_speed = 400.0
 grapple_fire_audio = ExtResource("27_d30e8")
 grapple_stick_audio = ExtResource("28_6pogt")
 grapple_bounce_audio = ExtResource("29_ie76m")
@@ -2101,6 +2106,24 @@ texture = ExtResource("36_jp1hh")
 patch_margin_top = 16
 patch_margin_bottom = 9
 axis_stretch_vertical = 1
+
+[node name="Control" type="Control" parent="GrappleHook/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HurtBox" parent="GrappleHook/NinePatchRect/Control" instance=ExtResource("10_x3vf3")]
+position = Vector2(0, -7)
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleHook/NinePatchRect/Control/HurtBox"]
+shape = SubResource("RectangleShape2D_d30e8")
+debug_color = Color(0.7, 0, 0.203, 0.072)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="GrappleHook"]
 stream = ExtResource("41_dy65m")
