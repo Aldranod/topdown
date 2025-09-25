@@ -4,7 +4,7 @@ const  BOMMERANG = preload("res://Player/boomerang.tscn")
 const BOMB = preload("res://Interactables/bomb/bomb.tscn")
 
 var abilities: Array[String] =[
-	"BOOME", "", "1", "" #bommerang, grapple, arrow, bomb
+	"", "", "", "" #bommerang, grapple, arrow, bomb
 ]
 
 var selected_ability : int = 0
@@ -24,11 +24,12 @@ func _ready() -> void:
 	PlayerHud.update_bomb_count(player.bomb_count)
 	setup_abilities()
 	SaveManager.game_loaded.connect(_on_game_loaded)
+	PlayerManager.INVENTORY_DATA.ability_acquired.connect( _on_ability_acquired)
 
-func setup_abilities() -> void:
+func setup_abilities( select_index : int = 0) -> void:
 	PauseMenu.update_ability_items(abilities)
 	PlayerHud.update_ability_items(abilities)
-	selected_ability = 0
+	selected_ability = select_index - 1
 	toggle_ability()
 	pass
 
@@ -103,4 +104,17 @@ func _on_game_loaded() -> void:
 	for i in new_abilities:
 		abilities.append(i)
 	setup_abilities()	
+	pass
+
+func _on_ability_acquired( _ability : AbilityItemData) -> void:
+	match _ability.type:
+		_ability.Type.BOOMERANG:
+			abilities[0] ="BOOMERANG"
+		_ability.Type.GRAPPLE:
+			abilities[1] ="GRAPPLE"
+		_ability.Type.ARROW:
+			abilities[2] ="ARROW"
+		_ability.Type.BOMB:
+			abilities[3] ="BOMB"			
+	setup_abilities( selected_ability)		
 	pass

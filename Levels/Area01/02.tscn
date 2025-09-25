@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://uqb8s3jnfov"]
+[gd_scene load_steps=38 format=4 uid="uid://uqb8s3jnfov"]
 
 [ext_resource type="Script" uid="uid://gmpt3se7oed1" path="res://Levels/scripts/level.gd" id="1_x70af"]
 [ext_resource type="AudioStream" uid="uid://bdq8vl4d8p62d" path="res://Levels/Music/example_music_01.ogg" id="2_icgqb"]
@@ -32,6 +32,10 @@
 [ext_resource type="Resource" uid="uid://1yi5jmltbl86" path="res://items/apple.tres" id="28_sbev4"]
 [ext_resource type="Resource" uid="uid://dh7avm20vuttc" path="res://items/gem.tres" id="29_vv7nh"]
 [ext_resource type="PackedScene" uid="uid://ctxsko7app7oa" path="res://Interactables/grapple_post/grapple_post.tscn" id="32_dffud"]
+[ext_resource type="Resource" uid="uid://bw415lp4tqari" path="res://items/ability_boomerang.tres" id="32_mdb57"]
+[ext_resource type="Resource" uid="uid://cj461s0gfhn2g" path="res://items/ability_bomb.tres" id="32_r117l"]
+[ext_resource type="Resource" uid="uid://btyhfl0g36ipk" path="res://items/ability_grapple.tres" id="33_m2uij"]
+[ext_resource type="Resource" uid="uid://ouvi02c4yox5" path="res://items/ability_arrow.tres" id="34_mnpoj"]
 
 [sub_resource type="GDScript" id="GDScript_xflnv"]
 script/source = "extends Node
@@ -74,12 +78,6 @@ level = "uid://cbtvh4md226dg"
 center_player = true
 size = 1
 side = 2
-
-[node name="Pot" parent="." instance=ExtResource("18_j3pfp")]
-position = Vector2(472, 160)
-
-[node name="Pot2" parent="." instance=ExtResource("18_j3pfp")]
-position = Vector2(456, 160)
 
 [node name="NPC" parent="." instance=ExtResource("7_icgqb")]
 position = Vector2(944, 432)
@@ -385,19 +383,19 @@ position = Vector2(328, 800)
 position = Vector2(1168, 600)
 
 [node name="NinjaSuit" parent="Props" instance=ExtResource("24_a2klq")]
-position = Vector2(1025.81, 352)
+position = Vector2(1025.81, 361.937)
 item_data = ExtResource("25_0j6pc")
-item_count = 0
+item_count = 1
 
 [node name="ItemPickup" parent="Props" instance=ExtResource("24_a2klq")]
 position = Vector2(664, 184)
 item_data = ExtResource("28_sbev4")
-item_count = 0
+item_count = 1
 
 [node name="ItemPickup2" parent="Props" instance=ExtResource("24_a2klq")]
 position = Vector2(680, 160)
 item_data = ExtResource("28_sbev4")
-item_count = 0
+item_count = 1
 
 [node name="ItemPickup3" parent="Props" instance=ExtResource("24_a2klq")]
 position = Vector2(312, 208)
@@ -412,8 +410,34 @@ item_count = 5
 [node name="ItemPickup5" parent="Props" instance=ExtResource("24_a2klq")]
 position = Vector2(552, 352)
 item_data = ExtResource("29_vv7nh")
-item_count = 0
+item_count = 1
 
 [node name="Treasure-chest" parent="Props" instance=ExtResource("26_abg8o")]
 position = Vector2(1280, 368)
 item_data = ExtResource("27_45xa8")
+
+[node name="Treasure-chest2" parent="Props" instance=ExtResource("26_abg8o")]
+position = Vector2(648, 240)
+item_data = ExtResource("32_r117l")
+
+[node name="Treasure-chest3" parent="Props" instance=ExtResource("26_abg8o")]
+position = Vector2(592, 240)
+item_data = ExtResource("33_m2uij")
+
+[node name="Treasure-chest4" parent="Props" instance=ExtResource("26_abg8o")]
+position = Vector2(544, 240)
+item_data = ExtResource("34_mnpoj")
+
+[node name="Treasure-chest5" parent="Props" instance=ExtResource("26_abg8o")]
+position = Vector2(496, 240)
+item_data = ExtResource("32_mdb57")
+
+[node name="Treasure-chest6" parent="Props" instance=ExtResource("26_abg8o")]
+position = Vector2(496, 240)
+item_data = ExtResource("32_mdb57")
+
+[node name="Pot" parent="Props" instance=ExtResource("18_j3pfp")]
+position = Vector2(472, 160)
+
+[node name="Pot2" parent="Props" instance=ExtResource("18_j3pfp")]
+position = Vector2(456, 160)
