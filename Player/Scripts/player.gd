@@ -21,8 +21,8 @@ var attack : int =1 :
 var defense : int = 1
 var defense_bonus: int = 0
 
-var arrow_count : int = 10 : set = _set_arrow_count
-var bomb_count : int = 10 : set = _set_bomb_count
+var arrow_count : int = 1 : set = _set_arrow_count
+var bomb_count : int = 1 : set = _set_bomb_count
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var effect_animation_player: AnimationPlayer = $EffectAnimationPlayer
