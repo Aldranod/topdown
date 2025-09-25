@@ -2117,11 +2117,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="HurtBox" parent="GrappleHook/NinePatchRect/Control" instance=ExtResource("10_x3vf3")]
+[node name="GrappleHurtBox" parent="GrappleHook/NinePatchRect/Control" instance=ExtResource("10_x3vf3")]
+unique_name_in_owner = true
 position = Vector2(0, -7)
 collision_mask = 256
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleHook/NinePatchRect/Control/HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleHook/NinePatchRect/Control/GrappleHurtBox"]
 shape = SubResource("RectangleShape2D_d30e8")
 debug_color = Color(0.7, 0, 0.203, 0.072)
 

@@ -40,35 +40,38 @@ z_index = -1
 position = Vector2(338, 95)
 shop_inventory = Array[ExtResource("8_54jjq")]([ExtResource("9_ktyg8"), ExtResource("12_hqw0x"), ExtResource("10_qkluu"), ExtResource("13_7qqfa"), ExtResource("14_offyj")])
 
-[node name="Pot" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pots" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Pot" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(233, 66)
 
-[node name="Pot2" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot2" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(67, 67)
 
-[node name="Pot3" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot3" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(257, 67)
 
-[node name="Pot4" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot4" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(279, 75)
 
-[node name="Pot5" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot5" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(261, 85)
 
-[node name="Pot6" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot6" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(275, 105)
 
-[node name="Pot7" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot7" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(260, -24)
 
-[node name="Pot8" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot8" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(376, -26)
 
-[node name="Pot9" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot9" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(343, -26)
 
-[node name="Pot10" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot10" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(246, 116)
 
-[node name="Pot11" parent="." instance=ExtResource("22_mhjp3")]
+[node name="Pot11" parent="Pots" instance=ExtResource("22_mhjp3")]
 position = Vector2(302, 81)

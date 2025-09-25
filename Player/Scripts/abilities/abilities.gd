@@ -3,8 +3,8 @@ class_name PlayerAbilities extends Node
 const  BOMMERANG = preload("res://Player/boomerang.tscn")
 const BOMB = preload("res://Interactables/bomb/bomb.tscn")
 
-var abilites: Array[String] =[
-	"BOOMERANG", "GRAPPLE", "BOW, BOMB"
+var abilities: Array[String] =[
+	"BOOME", "", "1", "" #bommerang, grapple, arrow, bomb
 ]
 
 var selected_ability : int = 0
@@ -22,6 +22,14 @@ func _ready() -> void:
 	player = PlayerManager.player
 	PlayerHud.update_arrow_count(player.arrow_count)
 	PlayerHud.update_bomb_count(player.bomb_count)
+	setup_abilities()
+
+func setup_abilities() -> void:
+	PauseMenu.update_ability_items(abilities)
+	PlayerHud.update_ability_items(abilities)
+	selected_ability = 0
+	toggle_ability()
+	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ability"):
@@ -39,7 +47,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	pass
 
 func toggle_ability() -> void:
+	if abilities.count("") == abilities.size():
+		return
 	selected_ability = wrapi(selected_ability + 1, 0, 4)
+	while abilities[selected_ability] == "":
+		selected_ability = wrapi(selected_ability + 1, 0, 4)
 	PlayerHud.update_ability_ui(selected_ability)
 	pass
 	

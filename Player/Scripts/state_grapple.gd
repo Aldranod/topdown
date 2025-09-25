@@ -5,6 +5,7 @@ class_name State_Grapple extends State
 @onready var nine_patch_rect: NinePatchRect = $"../../GrappleHook/NinePatchRect"
 @onready var chain_audio_player: AudioStreamPlayer2D = $"../../GrappleHook/AudioStreamPlayer2D"
 @onready var grapple_ray_cast_2d: RayCast2D = %GrappleRayCast2D
+@onready var grapple_hurt_box: HurtBox = %GrappleHurtBox
 
 @export var grapple_distance : float = 100.0
 @export var grapple_speed : float = 200.0
@@ -13,6 +14,8 @@ class_name State_Grapple extends State
 @export var grapple_fire_audio : AudioStream
 @export var grapple_stick_audio : AudioStream
 @export var grapple_bounce_audio : AudioStream
+
+
 
 var collision_distance : float
 var collision_type : int = 0 # 0 = none, 1 = wall, 2 = grapple point
@@ -38,11 +41,13 @@ func init() -> void:
 	grapple_hook.visible = false
 	grapple_ray_cast_2d.enabled = false
 	grapple_ray_cast_2d.target_position.y = grapple_distance
+	grapple_hurt_box.monitoring = false
 	pass
 
 func Enter() -> void:
 	player.UpdateAnimation("idle")
 	grapple_hook.visible = true
+	grapple_hurt_box.monitoring = true
 	set_grapple_position()
 	raycast_detection()
 	shoot_grapple()
@@ -53,6 +58,7 @@ func Enter() -> void:
 func Exit() -> void:
 	next_state = null
 	grapple_hook.visible = false
+	grapple_hurt_box.monitoring = false
 	chain_audio_player.stop()
 	tween.kill()
 	nine_patch_rect.size.y = nine_patch_size

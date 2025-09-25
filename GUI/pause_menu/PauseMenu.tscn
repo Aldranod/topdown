@@ -133,16 +133,17 @@ offset_right = 60.0
 offset_bottom = 182.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_408tb")
 
-[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer"]
+[node name="AbilityGridContainer" type="GridContainer" parent="Control/TabContainer/Inventory/AbilityContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("4_gtmg6")
 description = "This boomerang will always return to you after thrown. It can grab items too."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
 offset_right = 32.0
@@ -150,13 +151,13 @@ offset_bottom = 32.0
 texture = SubResource("AtlasTexture_hio0w")
 stretch_mode = 3
 
-[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot2" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("4_gtmg6")
 description = "OOOh, this thing looks very grapply!"
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot2"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot2"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
 offset_right = 32.0
@@ -164,13 +165,13 @@ offset_bottom = 32.0
 texture = SubResource("AtlasTexture_1v4th")
 stretch_mode = 3
 
-[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot3" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("4_gtmg6")
 description = "A trusty bow and arrow, Every adventurer needs one."
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
 offset_right = 32.0
@@ -178,7 +179,7 @@ offset_bottom = 32.0
 texture = SubResource("AtlasTexture_awacl")
 stretch_mode = 3
 
-[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot3"]
+[node name="ArrowCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot3"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 32.0
@@ -186,13 +187,13 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("9_rlqlv")
 text = "99"
 
-[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer"]
+[node name="InventorySlot4" type="Button" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 script = ExtResource("4_gtmg6")
 description = "These bombs have a 4 secund fuse. Once you throw it stay back!"
 
-[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+[node name="TextureRect" type="TextureRect" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot4"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 0
 offset_right = 32.0
@@ -200,7 +201,7 @@ offset_bottom = 32.0
 texture = SubResource("AtlasTexture_5wmam")
 stretch_mode = 3
 
-[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/GridContainer/InventorySlot4"]
+[node name="BombCountLabel" type="Label" parent="Control/TabContainer/Inventory/AbilityContainer/AbilityGridContainer/InventorySlot4"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 32.0
