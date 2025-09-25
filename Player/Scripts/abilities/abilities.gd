@@ -23,6 +23,7 @@ func _ready() -> void:
 	PlayerHud.update_arrow_count(player.arrow_count)
 	PlayerHud.update_bomb_count(player.bomb_count)
 	setup_abilities()
+	SaveManager.game_loaded.connect(_on_game_loaded)
 
 func setup_abilities() -> void:
 	PauseMenu.update_ability_items(abilities)
@@ -93,4 +94,13 @@ func bow_ability() -> void:
 func grapple_ability() ->void:
 	if state_machine.current_state == idle or state_machine.current_state == walk:
 		player.state_machine.change_state(grapple)
+	pass
+
+func _on_game_loaded() -> void:
+	@warning_ignore("unused_variable")
+	var new_abilities = SaveManager.current_save.abilities
+	abilities.clear()
+	for i in new_abilities:
+		abilities.append(i)
+	setup_abilities()	
 	pass
